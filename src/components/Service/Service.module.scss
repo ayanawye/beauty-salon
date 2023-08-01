@@ -1,0 +1,41 @@
+@import "../../style/adaptive.scss";
+@import "../../style/variables.scss";
+
+.service {
+  background: #EFDFEB;
+  @include adaptive-value("padding-top", 130, 90, 0);
+  @include adaptive-value("padding-bottom", 130, 90, 0);
+  h2 {
+    @include adaptive-value("font-size", 60, 44, 0);
+    @include adaptive-value("margin-bottom", 70, 30, 0);
+  }
+  &_cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    & > div {
+      width: calc(25% - 30px);
+      cursor: pointer;
+      h4 {
+        border-bottom: 1px solid $pink-color;
+        color: $black-color;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+      ul > li {
+        text-decoration: none;
+        display: inline-block;
+        color: #656363;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 130%;
+      }
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+}

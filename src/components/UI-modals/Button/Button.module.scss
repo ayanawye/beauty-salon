@@ -1,0 +1,31 @@
+@import "../../../style/variables.scss";
+
+.btn {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: $white-color;
+  border-radius: 36px;
+  width: fit-content; 
+}
+.outlined{
+  mix-blend-mode: darken; 
+  border: 1px solid #101010;
+  &:hover{
+    background: $pink-color;
+    border: none;
+    color: $white-color;
+  }
+}
+.active{
+  background: $pink-color;
+  border: none;
+  color: $white-color;
+}
+.black{
+  color: $white-color;
+  background: rgba(16, 16, 16, 0.80);
+  &:hover{
+    color: $pink-color;
+  }
+}

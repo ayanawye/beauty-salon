@@ -1,0 +1,30 @@
+@import "../../style/adaptive.scss";
+@import "../../style/variables.scss";
+
+.sale {
+  background: $pink-color;
+  @include adaptive-value("padding-top", 130, 90, 0);
+  @include adaptive-value("padding-bottom", 130, 90, 0);
+  display: flex;
+  justify-content: center;
+  form {
+    max-width: 715px;
+    color: $white-color;
+    h2 {
+      @include adaptive-value("font-size", 60, 44, 0);
+    }
+    p {
+      font-size: 16px;
+      @include adaptive-value("margin-bottom", 60, 50, 0);
+    }
+    input {
+      padding: 23px;
+      border-radius: 5px;
+      color: $black-color;
+      background: $white-color;
+      width: 100%;
+      margin-right: 17px;
+      @include adaptive-value("max-width", 409, 340, 0);
+    }
+  }
+}

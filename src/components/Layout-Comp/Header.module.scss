@@ -1,0 +1,23 @@
+@import '../../style/variables.scss';
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  height: 80px;
+  z-index: 99;
+  .container {
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 10px;
+    height: 100%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    .link {
+      color: $black-color;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+}
