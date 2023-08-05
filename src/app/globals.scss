@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+.container {
+  max-width: 1220px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  font-size: inherit;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; Optional: You can adjust the margin as needed */
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -webkit-appearance: none;
+}
+.swiper-wrapper {
+  align-items: center;
+}
+.swiper {
+  border-top: 1px solid #bebebe;
+  border-bottom: 1px solid #bebebe;
+  width: 100%;
+  height: 550px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide {
+  height: 350px;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.swiper-button-prev::after {
+  color: #000;
+  font-size: 24px;
+}
+.swiper-button-next::after {
+  font-size: 24px;
+  color: #000;
+}

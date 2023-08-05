@@ -1,0 +1,54 @@
+@import "../../../style/variables.scss";
+@import "../../../style/adaptive.scss";
+
+.expert_list {
+  padding: 100px 0;
+  .container{
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  h2 {
+    @include adaptive-value("font-size", 60, 44, 0);
+    @include adaptive-value("margin-bottom", 70, 60, 0);
+    color: $black-color;
+    font-weight: 500;
+  }
+  .cards {
+    display: flex;
+    justify-content: center;
+    column-gap: 80px;
+    row-gap: 100px;
+    & > div {
+      width: calc(33% - 53px);
+      img{
+        width: 362px;
+        height: 362px;
+        margin: 0 auto;
+        border-radius: 50%;
+        object-position: center;
+        object-fit: cover;
+      }
+      .work {
+        color: $pink-color;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      h6 {
+        color: $black-color;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        border-bottom: 1px solid #BEBEBE;
+      }
+      p {
+        color: $black-color;
+        font-size: 12px;
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../../style/variables.scss";
+@import "../../../style/adaptive.scss";
+
+.main {
+  height: 100vh;
+  width: 100%;
+  background: url("../../../../public/expert.png") no-repeat center/cover;
+  & > div {
+    @include adaptive-value("padding-left", 95, 30, 0);
+  }
+  h2 {
+    margin-top: 80px;
+    max-width: 850px;
+    min-width: 530px;
+    width: 100%;
+    @include adaptive-value("font-size", 60, 44, 0);
+    color: $white-color;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    color: $white-color;
+    max-width: 450px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  &_btn{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    z-index: 10;
+    & > div{
+      max-width: 365px;
+      width: 100%;
+    }
+  }
+}

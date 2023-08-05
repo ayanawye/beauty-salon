@@ -1,0 +1,11 @@
+@import '../../../style/variables.scss';
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 990px) {
+  .menu {
+    display: flex;
+  }
+}

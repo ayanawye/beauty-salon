@@ -1,0 +1,101 @@
+@import "../../../style/adaptive.scss";
+@import "../../../style/variables.scss";
+
+.main {
+  background: var(--page, #efdfeb);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  .content {
+    h2 {
+      width: 100%;
+      @include adaptive-value("font-size", 60, 44, 0);
+      color: $black-color;
+    }
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+    &_left {
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        color: $black-color;
+        max-width: 450px;
+        width: 100%;
+        margin-top: 33px;
+        margin-bottom: 56px;
+      }
+      &__btn {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        z-index: 10;
+        & > div {
+          max-width: 365px;
+          width: 100%;
+        }
+      }
+    }
+    &_right{
+      max-width: 362px;
+      min-width: 235px;
+      width: 100%;
+      height: 420px;
+      img{
+        width: 100%;
+        height: 100%; 
+      }
+    }
+  }
+}
+.swiper {
+  background: var(--page, #efdfeb);
+  .container {
+    max-width: 1310px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 0;
+  }
+}
+.price {
+  padding: 100px 0;
+  background: var(--page, #efdfeb);
+  h2 {
+    width: 100%;
+    @include adaptive-value("font-size", 60, 44, 0);
+    color: $black-color;
+  }
+  &_cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    @include adaptive-value("margin-top", 70, 35, 0);
+    & > div {
+      width: calc(50% - 30px);
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      border-bottom: 1px solid #bebebe;
+      color: $black-color;
+      margin-bottom: 50px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+  &_btn {
+    max-width: 780px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20px;
+    column-gap: 40px;
+    & > div {
+      width: calc(50% - 20px);
+    }
+  }
+}

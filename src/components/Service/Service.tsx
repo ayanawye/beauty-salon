@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image";
 import React, { FC } from "react";
 import s from "./Service.module.scss";
+import Button, { IVariant } from "../UI-modals/Button/Button";
 
 const data = [
   {
@@ -149,6 +151,14 @@ const Service: FC = () => {
                 </ul>
               </div>
             ))}
+        </div>
+        <div className={s.btn}>
+          <div>
+          <Button padding="17px 40px" variant={IVariant.primary}>получить скидку 15% на первый визит</Button>
+          </div>
+          <div>
+          <Button padding="17px 100px" variant={IVariant.outlined}>записаться онлайн</Button>
+          </div>
         </div>
       </div>
     </section>

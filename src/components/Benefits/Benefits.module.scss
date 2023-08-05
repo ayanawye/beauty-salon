@@ -12,11 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    column-gap: 170px;
+    column-gap: 130px;
     row-gap: 60px;
     flex-wrap: wrap;
     & > div {
-      width: calc(33% - 133px);
+      width: calc(33% - 90px);
       h4 {
         font-size: 60px;
         color: $pink-color;

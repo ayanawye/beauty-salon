@@ -1,8 +1,12 @@
 import Providers from "@/components/Layout-Comp/Providers";
-import "./globals.css";
+import "./globals.scss";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Header from "@/components/Layout-Comp/Header";
+import Footer from "@/components/Layout-Comp/Footer";
 
 const font = Montserrat({ subsets: ["latin"] });
 
@@ -21,7 +25,9 @@ export default function RootLayout({
       <body className={font.className}>
         <Providers>
           <Header />
-          {children}</Providers>
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
