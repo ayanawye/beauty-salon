@@ -1,4 +1,5 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
+@import "../../style/adaptive.scss";
 
 .header {
   position: fixed;
@@ -14,10 +15,28 @@
     height: 100%;
     margin: 0 auto;
     text-transform: uppercase;
-    .link {
-      color: $black-color;
-      font-weight: 400;
-      font-size: 14px;
+  }
+  &_menu{
+    width: 100%;
+    display: flex;
+    @include adaptive-value('margin-left', 100, 0, 0);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .link {
+    color: $black-color;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .btn {
+    max-width: 180px;
+    width: 100%;
+  }
+}
+@media (max-width: 1000px){
+  .header{
+    &_menu{
+      display: none;
     }
   }
 }

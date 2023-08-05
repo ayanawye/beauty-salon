@@ -1,0 +1,88 @@
+@import "../../style/adaptive.scss";
+@import "../../style/variables.scss";
+
+.sale {
+  padding: 0 0 130px;
+  background: var(--page, #efdfeb);
+  h2 {
+    @include adaptive-value("font-size", 60, 44, 0);
+    @include adaptive-value("margin-bottom", 70, 30, 0);
+  }
+  &_cards {
+    display: flex;
+    column-gap: 54px;
+    & > div {
+      width: 364px;
+      height: 364px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      border: 1px solid var(--unnamed, rgba(16, 16, 16, 0.9));
+    }
+  }
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    color: $pink-color;
+    text-align: center;
+  }
+  h3 {
+    font-size: 38px;
+    font-weight: 500;
+    text-align: center;
+    color: $black-color;
+  }
+  &_big_card{
+    position: relative;
+    width: 100%;
+    div{
+      max-width: 782px;
+      width: 100%;
+      height: 364px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 205px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      border: 1px solid var(--unnamed, rgba(16, 16, 16, 0.9));
+    }
+    img{
+      width: 354px;
+height: 354px;
+      right: 0;
+      top: 0;
+      position: absolute;
+    }
+  }
+  .active {
+    border: 1px solid #dd2588;
+    background: #dd2588;
+    p {
+      font-size: 20px;
+      font-weight: 400;
+      color: $white-color;
+      text-align: center;
+    }
+    h3 {
+      font-size: 38px;
+      font-weight: 500;
+      color: $white-color;
+    }
+  }
+  &_btn{
+    max-width: 780px;
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+    column-gap: 40px;
+    & > div{
+      width: calc(50% - 20px);
+    }
+  }
+}

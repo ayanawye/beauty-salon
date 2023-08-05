@@ -7,13 +7,15 @@
   color: $white-color;
   border-radius: 36px;
   width: fit-content; 
+  width: 100%;
 }
 .outlined{
   mix-blend-mode: darken; 
   border: 1px solid #101010;
+  color: $black-color;
   &:hover{
     background: $pink-color;
-    border: none;
+    border: 1px solid $pink-color;
     color: $white-color;
   }
 }

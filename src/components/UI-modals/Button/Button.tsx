@@ -24,6 +24,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       type={type}
+      onClick={e => e.preventDefault()}
       className={
         variant === IVariant.primary
           ? `${s.active} ${s.btn}`

@@ -49,16 +49,16 @@
         margin-top: 20px;
         font-size: 16px;
         font-weight: 400;
-        margin-bottom: 120px;
+        @include adaptive-value('margin-bottom', 100, 30, 0)
       }
     }
   }
   &_right {
-    max-width: 650px; 
     width: 100%;
     height: calc(100vh - 80px);
     color: $white-color;
     @include adaptive-value("padding-left", 80, 30, 0);
+    @include adaptive-value("max-width", 650, 160, 0);
     background: rgba(221, 37, 136, 0.42);
     &__content{
       height: 100%;
@@ -73,22 +73,15 @@
         width: 100%;
         border: 1px solid #FFF;
         padding: 25px 0 25px 25px;
-      }
-    }
-  }
-}
-
-@media (max-width: 1400px){
-  .hero{
-    &_left{
-      &__content{
-        p{
-          margin-bottom: 80px;
+        a{
+          display: block;
         }
       }
     }
-    &_right{
-      max-width: 500px;
-    }
+  }
+  &_btn{
+    max-width: 360px;
+    width: 100%;
   }
 }
+

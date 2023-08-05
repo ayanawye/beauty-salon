@@ -9,6 +9,7 @@
   justify-content: center;
   form {
     max-width: 715px;
+    width: 100%;
     color: $white-color;
     h2 {
       @include adaptive-value("font-size", 60, 44, 0);
@@ -25,6 +26,10 @@
       width: 100%;
       margin-right: 17px;
       @include adaptive-value("max-width", 409, 340, 0);
+    }
+    .btn{
+      max-width: 250px;
+      width: 100%;
     }
   }
 }
