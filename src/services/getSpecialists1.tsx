@@ -1,3 +1,4 @@
+import { ISpecialist } from "@/models/ISpecialist";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 export const getSpecialists1Api = createApi({

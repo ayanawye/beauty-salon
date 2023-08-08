@@ -19,7 +19,7 @@ const Hero = () => {
               косметология, перманентный макияж, массаж, коррекция фигуры
             </p>
             <div className={s.hero_btn}>
-            <Button padding="17px 100px" variant={IVariant.outlined}>
+            <Button padding="17px 0" variant={IVariant.outlined_white}>
               <Link href="#">записаться онлайн</Link>
             </Button>
             </div>

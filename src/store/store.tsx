@@ -1,4 +1,6 @@
+import { getActionApi } from "@/services/getAction";
 import { getAddressApi } from "@/services/getAddressApi";
+import { getImagesApi } from "@/services/getImagesApi";
 import { servisesApi } from "@/services/getServiceApi";
 import { getSpecialists1Api } from "@/services/getSpecialists1";
 import { getSpecialists2Api } from "@/services/getSpecialists2";
@@ -12,6 +14,8 @@ export const store = configureStore({
     [getAddressApi.reducerPath]: getAddressApi.reducer,
     [getSpecialists1Api.reducerPath]: getSpecialists1Api.reducer,
     [getSpecialists2Api.reducerPath]: getSpecialists2Api.reducer,
+    [getActionApi.reducerPath]: getActionApi.reducer,
+    [getImagesApi.reducerPath]: getImagesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -19,6 +23,8 @@ export const store = configureStore({
       getAddressApi.middleware,
       getSpecialists1Api.middleware,
       getSpecialists2Api.middleware,
+      getActionApi.middleware,
+      getImagesApi.middleware,
     ),
 });
 

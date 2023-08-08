@@ -1,4 +1,4 @@
-interface ISpecialist {
+export interface ISpecialist {
   id: number;
   fio: string;
   avatar: string;
