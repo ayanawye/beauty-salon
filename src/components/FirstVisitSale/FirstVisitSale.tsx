@@ -41,10 +41,10 @@ const FirstVisitSale: FC = () => {
               отправить
             </Button>
           </div>
-          {setInputError.length !== 0 && (
-            <h4 className="mt-3 text-start">{inputError}</h4>
-          )}
         </div>
+          {setInputError.length !== 0 && (
+            <h4 className="mt-5 text-center">{inputError}</h4>
+          )}
       </form>
     </div>
   );
