@@ -20,7 +20,7 @@ const FirstVisitSale: FC = () => {
   };
 
   return (
-    <div className={s.sale}>
+    <div className={s.sale} id="consultation">
       <form onSubmit={handleSendNumber}>
         <h2 className="uppercase font-normal text-center">
         консультация
@@ -29,7 +29,7 @@ const FirstVisitSale: FC = () => {
           Мы свяжемся с вами в течение нескольких минут и <br /> запишем вас на
           удобную дату
         </p>
-        <div className="flex">
+        <div className={s.send}>
           <input
             type="number"
             placeholder="+996 000 00 00 00"

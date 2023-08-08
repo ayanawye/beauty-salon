@@ -1,7 +1,7 @@
 import Benefits from "@/components/Benefits/Benefits";
 import Price from "@/components/Service/ServicePage/Price";
 import ServiceMain from "@/components/Service/ServicePage/ServiceMain";
-import Sliper from "@/components/Service/ServicePage/Sliper";
+import Swipers from "@/components/Service/ServicePage/Swiper";
 import React, { FC } from "react";
 
 export async function generateStaticParams() {
@@ -21,9 +21,9 @@ const ServicePage: FC = ({ params }: any) => {
   return (
     <>
       <ServiceMain id={Number(params?.id)} />
-      <Sliper />
-      <Price />
-      <Benefits />
+      <Swipers id={Number(params?.id)}/>
+      <Price id={Number(params?.id)}/>
+      <Benefits/>
     </>
   );
 };

@@ -3,23 +3,23 @@ import React, { FC } from "react";
 import s from "./ServicePage.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
 import Image from "next/image";
+import { useGetDetailServiceQuery, useGetServiceCategoryPriceQuery } from "@/services/getServiceApi";
 
 interface ServiceMainProps {
   id: number;
 }
 
 const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
-  console.log(id);
+  const {data: service} = useGetDetailServiceQuery(id)
 
   return (
     <main className={s.main}>
       <div className="container">
         <div className={s.content}>
           <div className={s.content_left}>
-            <h2>Брови</h2>
+            <h2>{service?.title}</h2>
             <p>
-              Все виды стрижек. В услугу входит мытье, стрижка и укладка. Мы
-              даем гарантию на наши услуги!{" "}
+              {service?.text}
             </p>
             <div className={s.content_left__btn}>
               <div>
@@ -35,7 +35,7 @@ const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
             </div>
           </div>
           <div className={s.content_right}>
-            <Image src="/eye-brow.png" alt="image" width={100} height={100} />
+            <img src={service?.image} alt="image"/>
           </div>
         </div>
       </div>

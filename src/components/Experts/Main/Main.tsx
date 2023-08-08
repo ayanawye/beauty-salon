@@ -19,7 +19,7 @@ const Main = () => {
           </Button>
           </div>
           <div>
-          <Button padding="16px 100px" variant={IVariant.outlined}>
+          <Button padding="16px 100px" variant={IVariant.outlined_pink}>
             записаться онлайн
           </Button>
           </div>

@@ -1,24 +1,22 @@
 'use client'
-import React from 'react';
+import React, { FC } from 'react';
 import s from './ServicePage.module.scss'
 import Button, { IVariant } from '@/components/UI-modals/Button/Button';
+import { useGetServiceCategoryPriceQuery } from '@/services/getServiceApi';
 
-const data = [
-  {id: 1, title: "женская стрижка", price:  2300},
-  {id: 2, title: "женская стрижка", price:  2300},
-  {id: 3, title: "женская стрижка", price:  2300},
-  {id: 4, title: "женская стрижка", price:  2300},
-  {id: 5, title: "женская стрижка", price:  2300},
-  {id: 6, title: "женская стрижка", price:  2300},
-]
+interface ServicePriceProps {
+  id: number;
+}
 
-const Price = () => {
+const Price: FC<ServicePriceProps> = ({id}) => {
+  const {data: servicePrice} = useGetServiceCategoryPriceQuery(id)
+
   return (
     <section className={s.price}>
       <div className="container">
         <h2>СТОИМОСТЬ</h2>
         <div className={s.price_cards}>
-          {data.map(el => (
+          {servicePrice?.length !==0 && servicePrice?.map(el => (
             <div key={el.id}>
               <h4>{el.title}</h4>
               <p>{el.price}</p>

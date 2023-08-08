@@ -2,13 +2,13 @@
 import React, { FC } from "react";
 import s from "./Experts.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
+import { ISpecialist } from "@/models/ISpecialist";
 
 interface ExpertsListProps {
   experts: ISpecialist[] | undefined;
 }
 
 const ExpertsList: FC<ExpertsListProps> = ({ experts }) => {
-  console.log(experts);
   
   return (
     <section className={s.expert_list}>

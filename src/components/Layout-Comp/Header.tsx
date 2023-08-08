@@ -7,17 +7,35 @@ import Link from "next/link";
 import s from "./Header.module.scss";
 import Image from "next/image";
 import Button, { IVariant } from "../UI-modals/Button/Button";
+import { useGetServiceQuery } from "@/services/getServiceApi";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Header = () => {
+  const {data: serviceCategories} = useGetServiceQuery('')
+
+  const scrollToConsultation = () => {
+    const consultationElement = document.getElementById("consultation");
+    if (consultationElement) {
+      consultationElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <header className={s.header}>
       <div className={s.container}>
         <div className="flex h-full justify-between items-center">
-          <Image alt="logo" src="/logo1.png" width={75} height={78} priority />
+          <Link href="/">
+            <Image
+              alt="logo"
+              src="/logo1.png"
+              width={75}
+              height={78}
+              priority
+            />
+          </Link>
           <div className={s.header_menu}>
             <Menu as="div" className="relative inline-block text-left">
               <div>
@@ -44,10 +62,11 @@ const Header = () => {
               >
                 <Menu.Items className="absolute left-0 z-10 mt-2 w-44 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
-                    <Menu.Item>
+                    {serviceCategories?.length !== 0 && serviceCategories?.map(category => (
+                    <Menu.Item key={category.id}>
                       {({ active }) => (
                         <Link
-                          href={`/service/3/стрижки`}
+                          href={`/service/${category.id}/${category.title}`}
                           className={classNames(
                             active
                               ? "bg-gray-100 text-gray-900"
@@ -55,40 +74,11 @@ const Header = () => {
                             "block px-4 py-2 uppercase text-xs"
                           )}
                         >
-                          стрижки
+                          {category.title}
                         </Link>
                       )}
                     </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          href={`/service/2/окрашивание`}
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 uppercase text-xs"
-                          )}
-                        >
-                          окрашивание
-                        </Link>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link
-                          href={`/service/1/Ногтевой-сервис`}
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2  uppercase text-xs"
-                          )}
-                        >
-                          ногтевой сервис
-                        </Link>
-                      )}
-                    </Menu.Item>
+                    ))}
                   </div>
                 </Menu.Items>
               </Transition>
@@ -159,11 +149,14 @@ const Header = () => {
               акции
             </Link>
             <p className={s.link}>ПН. - ВС. 10:00 - 22:00</p>
-            <div className={s.btn}>
-              <Button variant={IVariant.primary} padding="12px 35px">
+            <Link
+              className={s.btn}
+              href="#consultation"
+            >
+              <Button variant={IVariant.primary} onClick={scrollToConsultation} padding="12px 35px">
                 консультация
               </Button>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

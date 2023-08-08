@@ -1,16 +1,16 @@
-import { IAddress } from "@/models/IAddress";
+import { IAction } from "@/models/IModal";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-export const getAddressApi = createApi({
-  reducerPath: "getAddressApi",
+export const getActionApi = createApi({
+  reducerPath: "getAcrionApi",
   baseQuery: fetchBaseQuery({baseUrl: 'https://kudryashka.pythonanywhere.com/'}),
   endpoints: (build) => ({
-    getAddress: build.query<IAddress[], ''>({
+    getAction: build.query<IAction[], string>({
       query: () => ({
-        url: 'adress/'
+        url: 'action'
       })
     })
   })
 })
 
-export const { useGetAddressQuery } = getAddressApi
+export const { useGetActionQuery } = getActionApi

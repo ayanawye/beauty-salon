@@ -31,3 +31,19 @@
     color: $pink-color;
   }
 }
+.outlined_white{
+  border: 1px solid #101010;
+  color: $white-color;
+  &:hover{
+    background: $pink-color;
+    border: 1px solid $pink-color;
+  }
+}
+.outlined_pink{
+  border: 1px solid $pink-color;
+  color: $white-color;
+  &:hover{
+    background: $pink-color;
+    border: 1px solid $pink-color;
+  }
+}
