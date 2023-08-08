@@ -25,16 +25,11 @@ const Button: FC<ButtonProps> = ({
   type,
   onClick,
 }) => {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (onClick) {
-      onClick();
-    }
-  };
+
   return (
     <button
       type={type}
-      onClick={handleClick}
+      onClick={onClick}
       className={
         variant === IVariant.primary
           ? `${s.active} ${s.btn}`
