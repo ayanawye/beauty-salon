@@ -1,4 +1,5 @@
 import Benefits from "@/components/Benefits/Benefits";
+import FirstVisitSale from "@/components/FirstVisitSale/FirstVisitSale";
 import Price from "@/components/Service/ServicePage/Price";
 import ServiceMain from "@/components/Service/ServicePage/ServiceMain";
 import Swipers from "@/components/Service/ServicePage/Swiper";
@@ -23,6 +24,7 @@ const ServicePage: FC = ({ params }: any) => {
       <ServiceMain id={Number(params?.id)} />
       <Swipers id={Number(params?.id)}/>
       <Price id={Number(params?.id)}/>
+      <FirstVisitSale />
       <Benefits/>
     </>
   );

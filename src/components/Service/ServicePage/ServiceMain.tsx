@@ -4,6 +4,7 @@ import s from "./ServicePage.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
 import Image from "next/image";
 import { useGetDetailServiceQuery, useGetServiceCategoryPriceQuery } from "@/services/getServiceApi";
+import Link from "next/link";
 
 interface ServiceMainProps {
   id: number;
@@ -12,9 +13,16 @@ interface ServiceMainProps {
 const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
   const {data: service} = useGetDetailServiceQuery(id)
 
+  const scrollToConsultation = () => {
+    const consultationElement = document.getElementById("consultation");
+    if (consultationElement) {
+      consultationElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
     <main className={s.main}>
-      <div className="container">
+      <div className="container h-full">
         <div className={s.content}>
           <div className={s.content_left}>
             <h2>{service?.title}</h2>
@@ -22,11 +30,13 @@ const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
               {service?.text}
             </p>
             <div className={s.content_left__btn}>
-              <div>
-                <Button padding="17px 40px" variant={IVariant.primary}>
+                <div>
+                <Button onClick={scrollToConsultation} padding="17px 40px" variant={IVariant.primary}>
+              <Link href="#consultation">
                   получить скидку 15% на первый визит
+              </Link>
                 </Button>
-              </div>
+                </div>
               <div>
                 <Button padding="17px 100px" variant={IVariant.outlined}>
                   записаться онлайн

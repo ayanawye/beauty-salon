@@ -4,31 +4,33 @@
 .main {
   background: var(--page, #efdfeb);
   height: 100vh;
-  @include adaptive-value("padding", 80, 10, 0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   text-transform: uppercase;
   .content {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    height: 100%;
     column-gap: 20px;
+    width: 100%;
     h2 {
       width: 100%;
       @include adaptive-value("font-size", 60, 30, 0);
       color: $black-color;
     }
     &_left {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       p {
-        font-size: 16px;
         font-weight: 400;
         color: $black-color;
         max-width: 450px;
         width: 100%;
-        margin-top: 33px;
-        margin-bottom: 56px;
+        @include adaptive-value("font-size", 16, 14, 0);
+        @include adaptive-value("margin-top", 33, 5, 0);
+        @include adaptive-value("margin-bottom", 56, 5, 0);
       }
       &__btn {
         display: flex;
@@ -42,16 +44,18 @@
       }
     }
     &_right {
-      max-width: 362px;
-      min-width: 235px;
-      width: 100%;
-      height: 420px;
+      width: 50%;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
       img {
+        height: 420px;
+        max-width: 362px;
         width: 100%;
         border-radius: 177.5px 177.5px 0px 0px;
         object-position: center;
         object-fit: cover;
-        height: 100%;
       }
     }
   }
@@ -62,12 +66,14 @@
     max-width: 1310px;
     width: 100%;
     margin: 0 auto;
-    padding: 70px 0;
+    @include adaptive-value("padding-top", 70, 30, 0);
+    @include adaptive-value("padding-bottom", 70, 30, 0);
   }
 }
 .price {
-  padding: 100px 0;
   background: var(--page, #efdfeb);
+  @include adaptive-value("padding-top", 100, 30, 0);
+  @include adaptive-value("padding-bottom", 100, 30, 0);
   h2 {
     width: 100%;
     @include adaptive-value("font-size", 60, 30, 0);
@@ -89,7 +95,7 @@
       border-bottom: 1px solid #bebebe;
       color: $black-color;
       margin-bottom: 50px;
-      font-size: 20px;
+      @include adaptive-value("font-size", 20, 16, 0);
       font-weight: 500;
     }
   }
@@ -107,23 +113,12 @@
   }
 }
 
-@media (max-width: 1300px) {
-  .main {
-    .content {
-      &_left {
-        padding-top: 60px;
-        text-align: center;
-      }
-    }
-  }
-}
-
 @media (max-width: 900px) {
   .main {
     .content {
       &_right {
-        height: 350px;
         img {
+          height: 350px;
           width: 90%;
         }
       }
@@ -144,9 +139,8 @@
   .main {
     .content {
       &_right {
-        height: 350px;
         img {
-          object-position: left;
+          height: 380px;
           width: 100%;
         }
       }
@@ -159,7 +153,6 @@
       &_right {
         img {
           width: 90%;
-          margin-top: 30px;
         }
       }
     }
@@ -171,17 +164,26 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      position: relative;
       &_left {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 40px;
+        text-align: center;
         width: 100%;
+        margin-top: 90px;
+        &__btn{
+          position: absolute;
+          bottom: 10px;
+        }
       }
       &_right {
-        width: 50%;
-        height: 260px;
+        align-items: flex-start;
+        img{
+          width: 220px;
+          height: 40%;
+        }
       }
     }
   }

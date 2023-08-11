@@ -8,6 +8,7 @@ import s from "./Header.module.scss";
 import Image from "next/image";
 import Button, { IVariant } from "../UI-modals/Button/Button";
 import { useGetServiceQuery } from "@/services/getServiceApi";
+import BurgerMenu from "../UI-modals/BurgerMenu/BurgerMenu";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -142,7 +143,7 @@ const Header = () => {
                 </Menu.Items>
               </Transition>
             </Menu>
-            <Link href="/#" className={s.link}>
+            <Link href="/training" className={s.link}>
               обучение
             </Link>
             <Link href="#sales" className={s.link}>
@@ -158,6 +159,7 @@ const Header = () => {
               </Button>
             </Link>
           </div>
+          <BurgerMenu />
         </div>
       </div>
     </header>

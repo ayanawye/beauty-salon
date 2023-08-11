@@ -9,13 +9,13 @@ const FirstVisitSale: FC = () => {
 
   const handleSendNumber = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (number.length === 12) {
+    if (number.length === 11) {
       console.log(typeof number);
       setInputError("Верно");
-    } else if (number.length > 12) {
-      setInputError("Длина номера некорректна. Пример: +996 000 00 00 00");
+    } else if (number.length > 11) {
+      setInputError("Длина номера некорректна. Пример:  +79221110500");
     } else {
-      setInputError("Ошибка при вводе номера. Пример: +996 000 00 00 00");
+      setInputError("Ошибка при вводе номера. Пример: +79221110500");
     }
   };
 
@@ -32,7 +32,7 @@ const FirstVisitSale: FC = () => {
         <div className={s.send}>
           <input
             type="number"
-            placeholder="+996 000 00 00 00"
+            placeholder="+7 922 1110500"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
           />

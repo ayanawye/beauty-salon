@@ -1,7 +1,82 @@
-@import '../../../style/variables.scss';
+@import "../../../style/variables.scss";
+@import "../../../style/adaptive.scss";
 
 .menu {
   display: none;
+  position: relative;
+  .lines {
+    height: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .line {
+    width: 41px;
+    background: $black-color;
+    height: 4px;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 41px;
+      height: 4px;
+      background: $black-color;
+      transition: 0.3s;
+    }
+    &::after {
+      bottom: 10px;
+    }
+
+    &::before {
+      top: 10px;
+    }
+  }
+  .line_tranform {
+    width: 41px;
+    background: rgba(255, 255, 255, 0);
+    height: 4px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 41px;
+      height: 4px;
+      background: $black-color;
+      transition: 0.3s;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+      bottom: 0;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+  &_content {
+    top: 50px;
+    border-radius: 10px;
+    right: 0;
+    padding: 10px;
+    position: absolute;
+    background: $white-color;
+    display: flex;
+    flex-direction: column;
+    .link {
+      color: $black-color;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+    .btn {
+      max-width: 180px;
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: 990px) {
