@@ -81,8 +81,11 @@ input[type="number"]:focus {
   }
 }
 @media (max-width: 600px){
+  .swiper {
+    height: 420px;
+  }
   .swiper-slide {
-    width: 90% !important;
+    width: 100% !important;
     margin: 0 auto;
     height: 300px !important;
   }

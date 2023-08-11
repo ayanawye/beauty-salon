@@ -30,7 +30,7 @@
     @include adaptive-value("padding-left", 37, 20, 0);
     h2 {
       color: rgba(16, 16, 16, 0.9);
-      @include adaptive-value("font-size", 60, 32, 0);
+      @include adaptive-value("font-size", 60, 30, 0);
       font-weight: 400;
       font-style: normal;
     }

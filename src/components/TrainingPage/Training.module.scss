@@ -1,0 +1,106 @@
+@import "../../style/variables.scss";
+@import "../../style/adaptive.scss";
+
+.main {
+  height: 100vh;
+  width: 100%;
+  background: var(--page, #efdfeb);
+  // background: url("../../../public/training-bg.jpg") no-repeat center/cover;
+  &_left {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    flex-direction: column;
+    height: 100%;
+    @include adaptive-value("padding-left", 95, 5, 0);
+    h2 {
+      margin-top: 40px;
+      max-width: 850px;
+      width: 100%;
+      @include adaptive-value("font-size", 60, 26, 0);
+      color: $black-color;
+    }
+    p {
+      @include adaptive-value("font-size", 16, 14, 0);
+      color: #656363;
+      text-overflow: ellipsis;
+      font-weight: 400;
+      max-width: 385px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    &_btn {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      z-index: 10;
+      & > div {
+        max-width: 365px;
+        width: 100%;
+      }
+    }
+  }
+  &_right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 45%;
+    justify-content: flex-start;
+    background: rgba(221, 37, 136, 0.42);
+    .image {
+      border: 10px solid #fff;
+      box-shadow: 0px 20px 60px 0px rgba(47, 68, 73, 0.46);
+      position: relative;
+      width: 373px;
+      height: 460px;
+      .img {
+        width: 383px;
+        height: 410px;
+        position: absolute;
+        top: 15px;
+        left: -60px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-position: center;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+.courses {
+  background: var(--page, #efdfeb);
+  h2 {
+    @include adaptive-value("font-size", 60, 30, 0);
+  }
+  &_cards {
+    display: flex;
+    justify-content: center;
+    row-gap: 50px;
+    column-gap: 60px;
+    flex-wrap: wrap;
+    &_card {
+      width: calc(33% - 30px);
+      padding: 28px;
+      border-radius: 20px;
+      background: #c4c4c4;
+      img{
+        width: 100%;
+        height: 229px;
+      }
+      h3{
+        color: $black-color;
+font-size: 16px;
+font-weight: 700;
+text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .main {
+    background: url("../../../public/training-bg.jpg") no-repeat 60% / cover;
+  }
+}

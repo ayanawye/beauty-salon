@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { FC } from "react";
 import s from "./Service.module.scss";
 import Button, { IVariant } from "../UI-modals/Button/Button";
 import { useGetServiceQuery } from "@/services/getServiceApi";
-
+import Link from "next/link";
 
 const Service: FC = () => {
-  const {data: services} = useGetServiceQuery('')
+  const { data: services } = useGetServiceQuery("");
 
   return (
     <section className={s.service}>
@@ -17,21 +17,24 @@ const Service: FC = () => {
           {services?.length !== 0 &&
             services?.map((service) => (
               <div key={service?.id}>
-                <img
-                  alt="service"
-                  src={service.image}
-                />
-                <h4 className="uppercase font-bold">{service?.title}</h4>
-                <p>{service?.description}</p>
+                <Link href={`/service/${service.id}/${service.title}`}>
+                  <img alt="service" src={service.image} />
+                  <h4 className="uppercase font-bold">{service?.title}</h4>
+                  <p>{service?.description}</p>
+                </Link>
               </div>
             ))}
         </div>
         <div className={s.btn}>
           <div>
-          <Button padding="17px 20px" variant={IVariant.primary}>получить скидку 15% на первый визит</Button>
+            <Button padding="17px 20px" variant={IVariant.primary}>
+              получить скидку 15% на первый визит
+            </Button>
           </div>
           <div>
-          <Button padding="17px 20px" variant={IVariant.outlined}>записаться онлайн</Button>
+            <Button padding="17px 20px" variant={IVariant.outlined}>
+              записаться онлайн
+            </Button>
           </div>
         </div>
       </div>

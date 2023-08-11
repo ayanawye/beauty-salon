@@ -16,15 +16,14 @@ const Swipers: FC<SwiperProps> = ({ id }) => {
     <div className={s.swiper}>
       <div className={s.container}>
         <Swiper
-          slidesPerView={3}
-          loop={true}
+          slidesPerView={1} // Установите 1 слайд в видимости
           navigation={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
           breakpoints={{
-            300: {
+            0: {
               slidesPerView: 1,
-              spaceBetween: 0
+              spaceBetween: 57,
             },
             600: {
               slidesPerView: 2,
@@ -32,6 +31,7 @@ const Swipers: FC<SwiperProps> = ({ id }) => {
             },
             800: {
               slidesPerView: 3,
+              spaceBetween: 57,
             },
           }}
         >
