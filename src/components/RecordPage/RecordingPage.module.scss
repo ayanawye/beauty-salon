@@ -22,7 +22,9 @@
       background: $pink-color;
       @include adaptive-value("padding", 40, 20, 0);
       @include adaptive-value("padding-top", 30, 10, 0);
-      color: #101010;
+      color: $black-color;
+      overflow: hidden;
+      overflow-y: scroll;
       h2 {
         font-size: 32px;
         text-align: center;
@@ -52,13 +54,14 @@
       }
       .selected_block {
         display: flex;
+        cursor: pointer;
         column-gap: 10px;
         padding: 15px 12px;
         border-radius: 20px;
-        border: 1px solid #101010;
+        border: 1px solid $black-color;
         background: rgba(244, 243, 240, 0.78);
         align-items: center;
-        @include adaptive-value('margin-bottom', 80, 30, 0);
+        @include adaptive-value("margin-bottom", 80, 30, 0);
         img {
           width: 64px;
           height: 64px;
@@ -68,6 +71,105 @@
         p {
           font-size: 24px;
           font-weight: 400;
+        }
+      }
+      .specialist {
+        border-radius: 20px;
+        border: 1px solid $black-color;
+        background: rgba(244, 243, 240, 0.78);
+        padding: 20px;
+        cursor: pointer;
+        margin-bottom: 30px;
+        h3 {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        p {
+          font-size: 12px;
+          font-weight: 400;
+        }
+        .top {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          img {
+            width: 85px;
+            height: 85px;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 10px;
+          }
+        }
+        .bottom {
+          ul {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            column-gap: 20px;
+            row-gap: 15px;
+          }
+          li {
+            padding: 5px 20px;
+            cursor: pointer;
+            border-radius: 36px;
+            border: 1px solid var(--unnamed, rgba(16, 16, 16, 0.9));
+          }
+        }
+      }
+      .service {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        @include adaptive-value("padding-left", 50, 10, 0);
+        @include adaptive-value("padding-right", 50, 10, 0);
+        color: $black-color;
+        border-radius: 20px;
+        border: 1px solid $black-color;
+        cursor: pointer;
+        background: rgba(244, 243, 240, 0.78);
+        h3 {
+          @include adaptive-value("font-size", 24, 14, 0);
+          font-weight: 600;
+        }
+        p {
+          @include adaptive-value("font-size", 20, 14, 0);
+          font-weight: 400;
+        }
+      }
+      .chosen {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 1px solid $black-color;
+        background: rgba(244, 243, 240, 0.78);
+        cursor: pointer;
+        margin-bottom: 30px;
+        .top {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          img {
+            width: 85px;
+            height: 85px;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 10px;
+          }
+        }
+        h3 {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        p {
+          font-size: 12px;
+          font-weight: 400;
+        }
+        img{
+          width: 24px;
+          height: 24px;
         }
       }
     }

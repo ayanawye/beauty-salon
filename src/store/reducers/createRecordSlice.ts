@@ -1,20 +1,24 @@
-import { INewRecord } from './createRecordSlice';
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface INewRecord {
   record: {
-    address: number;
-    specialist_id: number;
+    address: number | null;
+    specialist_id: number | null;
     date: string;
-    service: string;
+    service: number | null;
   };
   isLoading: boolean,
   error: string
 }
 
 const initialState: INewRecord = {
-  record: {},
+  record: {
+    address: null,
+    specialist_id: null,
+    date: '',
+    service: null,
+  },
   isLoading: false,
   error: '',
 };
@@ -23,7 +27,7 @@ export const createRecordSlice = createSlice({
   name: "record",
   initialState,
   reducers: {
-    addAddress(state, action: PayloadAction<string>) {
+    addAddress(state, action: PayloadAction<number>) {
       state.record.address = action.payload
     },
     addSpecialistId(state, action: PayloadAction<number>){
@@ -32,8 +36,11 @@ export const createRecordSlice = createSlice({
     addDate(state, action: PayloadAction<string>){
       state.record.date = action.payload
     },
-    addService(state, action: PayloadAction<string>){
+    addService(state, action: PayloadAction<number>){
       state.record.service = action.payload
+    },
+    deleteExpert(state) {
+      state.record.specialist_id = null
     }
   },
 });
