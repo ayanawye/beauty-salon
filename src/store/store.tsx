@@ -7,6 +7,7 @@ import { getSpecialists2Api } from "@/services/getSpecialists2";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import createRecordSlice from './reducers/createRecordSlice'
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     [getSpecialists2Api.reducerPath]: getSpecialists2Api.reducer,
     [getActionApi.reducerPath]: getActionApi.reducer,
     [getImagesApi.reducerPath]: getImagesApi.reducer,
+    createRecordSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(

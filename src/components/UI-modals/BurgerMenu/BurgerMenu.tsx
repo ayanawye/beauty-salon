@@ -23,7 +23,6 @@ const BurgerMenu = () => {
       consultationElement.scrollIntoView({ behavior: "smooth" });
     }
   };
-  console.log(menu);
 
   const handleMenu = () => {
     setMenu((prev) => !prev);
