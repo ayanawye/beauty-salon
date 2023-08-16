@@ -4,7 +4,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface INewRecord {
   record: {
-    address: string;
+    address: number;
     specialist_id: number;
     date: string;
     service: string;
@@ -26,6 +26,15 @@ export const createRecordSlice = createSlice({
     addAddress(state, action: PayloadAction<string>) {
       state.record.address = action.payload
     },
+    addSpecialistId(state, action: PayloadAction<number>){
+      state.record.specialist_id = action.payload
+    },
+    addDate(state, action: PayloadAction<string>){
+      state.record.date = action.payload
+    },
+    addService(state, action: PayloadAction<string>){
+      state.record.service = action.payload
+    }
   },
 });
 
