@@ -1,3 +1,6 @@
+'use client'
+ 
+import { usePathname } from 'next/navigation'
 import Providers from "@/components/Layout-Comp/Providers";
 import "./globals.scss";
 import "swiper/css";
@@ -20,13 +23,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname()
   return (
     <html lang="en">
       <body className={font.className}>
         <Providers>
-          <Header />
+          {pathname === '/record' ? null : <Header />}
           {children}
-          <Footer />
+          {pathname === "/record" ? null : <Footer />}
         </Providers>
       </body>
     </html>

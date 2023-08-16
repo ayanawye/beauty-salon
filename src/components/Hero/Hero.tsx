@@ -20,7 +20,7 @@ const Hero = () => {
             </p>
             <div className={s.hero_btn}>
             <Button padding="17px 0" variant={IVariant.outlined_white}>
-              <Link href="#">записаться онлайн</Link>
+              <Link href="/record">записаться онлайн</Link>
             </Button>
             </div>
           </div>

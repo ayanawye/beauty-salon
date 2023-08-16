@@ -2,8 +2,7 @@
 import React, { FC } from "react";
 import s from "./ServicePage.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
-import Image from "next/image";
-import { useGetDetailServiceQuery, useGetServiceCategoryPriceQuery } from "@/services/getServiceApi";
+import { useGetDetailServiceQuery } from "@/services/getServiceApi";
 import Link from "next/link";
 
 interface ServiceMainProps {
