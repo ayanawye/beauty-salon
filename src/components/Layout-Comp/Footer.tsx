@@ -47,7 +47,7 @@ const Footer = () => {
                 <div>
                   <p className="uppercase text-base">instagram</p>
                   <a
-                    href="#"
+                    href="https://instagram.com/kudryashka.salon?igshid=MzRlODBiNWFlZA=="
                     className="underline uppercase font-bold"
                     target="_blank"
                     rel="noopener noreferrer"

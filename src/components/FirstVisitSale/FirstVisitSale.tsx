@@ -13,9 +13,9 @@ const FirstVisitSale: FC = () => {
       console.log(typeof number);
       setInputError("Верно");
     } else if (number.length > 11) {
-      setInputError("Длина номера некорректна. Пример:  +79221110500");
+      setInputError("Введите номер в формате +7XXXXXXXXXX");
     } else {
-      setInputError("Ошибка при вводе номера. Пример: +79221110500");
+      setInputError("Ошибка при вводе номера. Пример: +7XXXXXXXXXX");
     }
   };
 
@@ -32,7 +32,7 @@ const FirstVisitSale: FC = () => {
         <div className={s.send}>
           <input
             type="number"
-            placeholder="+7 922 1110500"
+            placeholder="+7XXXXXXXXXX"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
           />

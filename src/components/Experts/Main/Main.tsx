@@ -2,6 +2,7 @@
 import React from "react";
 import s from "./Main.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
+import Link from "next/link";
 
 const Main = () => {
   return (
@@ -19,9 +20,11 @@ const Main = () => {
           </Button>
           </div>
           <div>
+          <Link href="/record">
           <Button padding="16px 100px" variant={IVariant.outlined_pink}>
             записаться онлайн
           </Button>
+          </Link>
           </div>
         </div>
       </div>

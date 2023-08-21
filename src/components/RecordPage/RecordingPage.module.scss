@@ -52,6 +52,11 @@
         object-fit: cover;
         border-radius: 10px;
       }
+      .selected_box {
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
+      }
       .selected_block {
         display: flex;
         cursor: pointer;
@@ -61,7 +66,7 @@
         border: 1px solid $black-color;
         background: rgba(244, 243, 240, 0.78);
         align-items: center;
-        @include adaptive-value("margin-bottom", 80, 30, 0);
+        position: relative;
         img {
           width: 64px;
           height: 64px;
@@ -71,6 +76,52 @@
         p {
           font-size: 24px;
           font-weight: 400;
+        }
+      }
+      .selected_block_service {
+        cursor: pointer;
+        padding: 15px 12px;
+        border-radius: 20px;
+        border: 1px solid $black-color;
+        background: rgba(244, 243, 240, 0.78);
+        align-items: center;
+        @include adaptive-value("margin-bottom", 80, 30, 0);
+        .top {
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+          img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            object-position: center;
+          }
+          p {
+            font-size: 24px;
+            font-weight: 400;
+          }
+        }
+        .bottom {
+          margin-top: 20px;
+          border-top: 1px solid #000;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 30px;
+          img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            object-position: center;
+          }
+          h3 {
+            font-size: 16px;
+            font-weight: 600;
+          }
+          p {
+            font-size: 15px;
+            font-weight: 400;
+          }
         }
       }
       .specialist {
@@ -98,6 +149,7 @@
             object-fit: cover;
             object-position: center;
             margin-right: 10px;
+            border-radius: 50%;
           }
         }
         .bottom {
@@ -120,6 +172,7 @@
       .service {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 20px 0;
         @include adaptive-value("padding-left", 50, 10, 0);
         @include adaptive-value("padding-right", 50, 10, 0);
@@ -127,6 +180,7 @@
         border-radius: 20px;
         border: 1px solid $black-color;
         cursor: pointer;
+        margin-bottom: 10px;
         background: rgba(244, 243, 240, 0.78);
         h3 {
           @include adaptive-value("font-size", 24, 14, 0);
@@ -146,7 +200,6 @@
         border: 1px solid $black-color;
         background: rgba(244, 243, 240, 0.78);
         cursor: pointer;
-        margin-bottom: 30px;
         .top {
           display: flex;
           align-items: center;
@@ -157,6 +210,7 @@
             object-fit: cover;
             object-position: center;
             margin-right: 10px;
+            border-radius: 50%;
           }
         }
         h3 {
@@ -167,9 +221,85 @@
           font-size: 12px;
           font-weight: 400;
         }
-        img{
+        img {
           width: 24px;
           height: 24px;
+        }
+      }
+      &_chosen_time {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        & .day {
+          font-size: 20px !important;
+          font-weight: 600;
+        }
+        & img {
+          width: 24px !important;
+          height: 24px !important;
+          cursor: pointer;
+          position: absolute;
+          right: 20px;
+          top: 40%;
+        }
+        & p {
+          font-size: 15px !important;
+          font-weight: 400;
+        }
+      }
+      .form {
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        & > div {
+          margin-bottom: 30px;
+        }
+        label {
+          color: $black-color;
+          display: block;
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-bottom: 5px;
+        }
+        textarea,
+        input {
+          border-radius: 36px;
+          border: 1px solid #000;
+          background: none;
+          padding: 10px 20px;
+          width: 100%;
+        }
+        &_btn {
+          max-width: 220px;
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+      .date {
+        border-radius: 20px;
+        border: 1px solid #101010;
+        background: rgba(244, 243, 240, 0.78);
+        padding: 20px;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        ul {
+          width: 100%;
+          border: 1px solid #101010;
+          border-radius: 20px;
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: 30px;
+          li {
+            cursor: pointer;
+            border: 1px solid #101010;
+            border-radius: 20px;
+            width: calc(33% - 20px);
+            text-align: center;
+          }
         }
       }
     }

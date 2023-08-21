@@ -3,6 +3,7 @@ import React from "react";
 import s from "./Sales.module.scss";
 import Button, { IVariant } from "../UI-modals/Button/Button";
 import { useGetActionQuery } from "@/services/getAction";
+import Link from "next/link";
 
 const Sales = () => {
   const { data: sales } = useGetActionQuery("");
@@ -39,7 +40,7 @@ const Sales = () => {
                 <h3 className="mt-3">{sale.title}</h3>
               </div>
             ))}
-          <img src="/sun_curcle.svg" alt="image" />
+          {sales?.length !== 0 && <img src="/sun_curcle.svg" alt="image" />}
         </div>
         <div className={s.sale_btn}>
           <div>
@@ -48,9 +49,11 @@ const Sales = () => {
             </Button>
           </div>
           <div>
-            <Button padding="17px 100px" variant={IVariant.outlined}>
-              записаться онлайн
-            </Button>
+            <Link href="/record">
+              <Button padding="17px 100px" variant={IVariant.outlined}>
+                записаться онлайн
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

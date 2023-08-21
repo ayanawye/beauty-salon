@@ -3,13 +3,23 @@ import React, { FC } from "react";
 import s from "./Experts.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
 import { ISpecialist } from "@/models/ISpecialist";
+import { useAppDispatch } from "@/store/store";
+import { createRecordSlice } from "@/store/reducers/createRecordSlice";
+import Link from "next/link";
 
 interface ExpertsListProps {
   experts: ISpecialist[] | undefined;
+  address: number;
 }
 
-const ExpertsList: FC<ExpertsListProps> = ({ experts }) => {
-  
+const ExpertsList: FC<ExpertsListProps> = ({ experts, address }) => {
+  const dispatch = useAppDispatch();
+
+  const handleClick = (expert: number) => {
+    dispatch(createRecordSlice.actions.addSpecialistId(expert));
+    dispatch(createRecordSlice.actions.addAddress(address));
+  };
+
   return (
     <section className={s.expert_list}>
       <div className={s.container}>
@@ -33,9 +43,14 @@ const ExpertsList: FC<ExpertsListProps> = ({ experts }) => {
                 <p className="mb-14 mt-2.5">
                   <span>Повышение квалификации:</span> {expert?.training}
                 </p>
-                <Button padding="16px 65px" variant={IVariant.primary}>
-                  записаться
-                </Button>
+                <Link href="/record" onClick={() => handleClick(expert.id)}>
+                  <Button
+                    padding="16px 65px"
+                    variant={IVariant.primary}
+                  >
+                    записаться
+                  </Button>
+                </Link>
               </div>
             ))}
         </div>
