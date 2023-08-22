@@ -23,26 +23,23 @@ const UserInfoForm: FC = () => {
     formState: { errors },
   } = useForm<FormData>();
   const dispatch = useAppDispatch()
-  // const router = useRouter()
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      // Сначала обновите состояние
       dispatch(createRecordSlice.actions.addFio(data.fio));
       dispatch(createRecordSlice.actions.addEmail(data.email));
       dispatch(createRecordSlice.actions.addNumber(data.phone_number));
       dispatch(createRecordSlice.actions.addComment(data.comment));
-  
-      // Потом вызовите thunk
+      
       await dispatch(postRecord({
         address,
-        comment: data.comment,
-        fio: data.fio,
-        email: data.email,
+        comment,
+        fio,
+        email,
         member,
         free_time_id,
         services,
-        phone_number: data.phone_number
+        phone_number
       }));
   
       message.success({

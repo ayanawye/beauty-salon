@@ -22,6 +22,15 @@
     row-gap: 50px;
     & > div {
       width: calc(33% - 53px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: -webkit-fill-available;
+      }
       img{
         width: 362px;
         height: 362px;

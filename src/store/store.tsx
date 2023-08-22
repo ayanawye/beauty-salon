@@ -11,6 +11,7 @@ import createRecordSlice from './reducers/createRecordSlice'
 import memberIdSlice from './reducers/memberIdSlice'
 import { getDateApi } from "@/services/getDate";
 import { getSpecialistsApi } from "@/services/getSpecialist";
+import { consultationApi } from "@/services/postConsultationApi";
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     [getSpecialistsApi.reducerPath]: getSpecialistsApi.reducer,
     [getImagesApi.reducerPath]: getImagesApi.reducer,
     [getDateApi.reducerPath]: getDateApi.reducer,
+    [consultationApi.reducerPath]: consultationApi.reducer,
     createRecordSlice,
     memberIdSlice,
   },
@@ -35,6 +37,7 @@ export const store = configureStore({
       getImagesApi.middleware,
       getDateApi.middleware,
       getSpecialistsApi.middleware,
+      consultationApi.middleware,
     ),
 });
 

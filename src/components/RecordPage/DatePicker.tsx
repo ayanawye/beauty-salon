@@ -17,6 +17,7 @@ interface DatePickerProps {
 const DatePicker: FC<DatePickerProps> = ({member, onClick}) => {
   const [value, setValue] = useState<Dayjs | null>(dayjs(new Date()));
   const { data: dates } = useGetWeekDateQuery(member);
+  console.log(member)
   const dispatch = useAppDispatch()
   const formattedDate = dayjs(value).format('YYYY-MM-DD');
   

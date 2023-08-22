@@ -17,7 +17,7 @@ const RecordingPage = () => {
   const { address, member, free_time_id, services } = useAppSelector(
     (state) => state.createRecordSlice
   );
-  console.log(address, member)
+  console.log(address, member, free_time_id, services)
   
   const [date, setDate] = useState([]);
   const [selectedBlock, setSelectedBlock] = useState("address");
@@ -71,7 +71,7 @@ const RecordingPage = () => {
               <h2 className="uppercase">выберите филиал</h2>
               <div
                 className="cursor-pointer"
-                onClick={() => handleAddAddress(1)}
+                onClick={() => handleAddAddress(2)}
               >
                 <div className={s.text}>
                   <h3>ул Белореченская</h3>
@@ -81,7 +81,7 @@ const RecordingPage = () => {
               </div>
               <div
                 className="cursor-pointer"
-                onClick={() => handleAddAddress(2)}
+                onClick={() => handleAddAddress(1)}
               >
                 <div className={s.text}>
                   <h3>ул Судакова</h3>

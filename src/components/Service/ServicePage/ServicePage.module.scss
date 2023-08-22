@@ -113,6 +113,16 @@
   }
 }
 
+@media (max-width: 1330px) {
+  .main {
+    .content {
+      &_right {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
 @media (max-width: 900px) {
   .main {
     .content {
@@ -173,21 +183,21 @@
         text-align: center;
         width: 100%;
         margin-top: 90px;
-        &__btn{
+        &__btn {
           position: absolute;
           bottom: 10px;
         }
       }
       &_right {
         align-items: flex-start;
-        img{
+        img {
           width: 220px;
           height: 40%;
         }
       }
     }
   }
-  .price{
+  .price {
     &_btn {
       display: flex;
       flex-wrap: wrap;

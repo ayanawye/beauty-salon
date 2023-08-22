@@ -2,16 +2,35 @@
 import React, { FC, useState } from "react";
 import s from "./FirstVisitSale.module.scss";
 import Button, { IVariant } from "../UI-modals/Button/Button";
+import { usePostPhoneMutation } from "@/services/postConsultationApi";
+import { message } from "antd";
 
 const FirstVisitSale: FC = () => {
   const [number, setNumber] = useState<string>("");
   const [inputError, setInputError] = useState("");
+  const [postPhone] = usePostPhoneMutation()
 
-  const handleSendNumber = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSendNumber = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (number.length === 11) {
-      console.log(typeof number);
       setInputError("Верно");
+      try {
+        await postPhone({phone_number: number})
+        message.success({
+          type: 'success',
+          content: 'С вами скоро свяжется наш администратор',
+          className: 'custom-class',
+          style: {
+            marginTop: '70px',
+          },
+        });
+        setTimeout(() => {
+          setNumber('')
+          setInputError('')
+        }, 2000)
+      } catch (error) {
+        
+      }
     } else if (number.length > 11) {
       setInputError("Введите номер в формате +7XXXXXXXXXX");
     } else {

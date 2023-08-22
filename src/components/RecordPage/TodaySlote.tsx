@@ -14,9 +14,9 @@ const TodaySlote: FC<TodaySloteProps> = ({ member, onClick }) => {
   console.log(todaySlote);
   
 
-  const handleAddSpecialistDate = (time: string) => {
+  const handleAddSpecialistDate = (time: number) => {
     dispatch(createRecordSlice.actions.addSpecialistId(member));
-    dispatch(createRecordSlice.actions.addDate(time));
+    dispatch(createRecordSlice.actions.addDate(time))
     onClick();
   };
 
