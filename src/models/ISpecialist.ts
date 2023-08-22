@@ -9,3 +9,10 @@ export interface ISpecialist {
   training: string;
   address: number;
 }
+
+export interface IAddressSpecialist {
+  id: number;
+  fio: string;
+  avatar: string;
+  status: string;
+}

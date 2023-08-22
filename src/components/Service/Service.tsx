@@ -32,9 +32,11 @@ const Service: FC = () => {
             </Button>
           </div>
           <div>
-            <Button padding="17px 20px" variant={IVariant.outlined}>
-              записаться онлайн
-            </Button>
+          <Link href="/record">
+              <Button padding="17px 100px" variant={IVariant.outlined}>
+                записаться онлайн
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -8,6 +8,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import createRecordSlice from './reducers/createRecordSlice'
+import memberIdSlice from './reducers/memberIdSlice'
+import { getDateApi } from "@/services/getDate";
+import { getSpecialistsApi } from "@/services/getSpecialist";
+import { consultationApi } from "@/services/postConsultationApi";
 
 export const store = configureStore({
   reducer: {
@@ -16,8 +20,12 @@ export const store = configureStore({
     [getSpecialists1Api.reducerPath]: getSpecialists1Api.reducer,
     [getSpecialists2Api.reducerPath]: getSpecialists2Api.reducer,
     [getActionApi.reducerPath]: getActionApi.reducer,
+    [getSpecialistsApi.reducerPath]: getSpecialistsApi.reducer,
     [getImagesApi.reducerPath]: getImagesApi.reducer,
-    createRecordSlice
+    [getDateApi.reducerPath]: getDateApi.reducer,
+    [consultationApi.reducerPath]: consultationApi.reducer,
+    createRecordSlice,
+    memberIdSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -27,6 +35,9 @@ export const store = configureStore({
       getSpecialists2Api.middleware,
       getActionApi.middleware,
       getImagesApi.middleware,
+      getDateApi.middleware,
+      getSpecialistsApi.middleware,
+      consultationApi.middleware,
     ),
 });
 

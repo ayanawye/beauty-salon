@@ -21,7 +21,12 @@ export const servisesApi = createApi({
         url: `service/${id}/`
       })
     }),
+    getMemberService: build.query<any, any>({
+      query: (id) => ({
+        url: `service-list/${id}/`
+      })
+    }),
   })
 });
 
-export const { useGetServiceQuery, useGetDetailServiceQuery, useGetServiceCategoryPriceQuery } = servisesApi
+export const { useGetServiceQuery, useGetDetailServiceQuery, useGetServiceCategoryPriceQuery, useGetMemberServiceQuery } = servisesApi

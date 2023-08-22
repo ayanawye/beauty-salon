@@ -4,8 +4,9 @@
 .benefit {
   background: #efdfeb;
   @include adaptive-value("padding-bottom", 130, 90, 0);
+  padding-top: 20px;
   h2 {
-    @include adaptive-value("font-size", 60, 30, 0);
+    @include adaptive-value("font-size", 60, 34, 0);
     @include adaptive-value("margin-bottom", 70, 30, 0);
   }
   &_cards {

@@ -10,14 +10,14 @@ interface ServiceMainProps {
 }
 
 const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
-  const {data: service} = useGetDetailServiceQuery(id)
+  const { data: service } = useGetDetailServiceQuery(id);
 
   const scrollToConsultation = () => {
     const consultationElement = document.getElementById("consultation");
     if (consultationElement) {
       consultationElement.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <main className={s.main}>
@@ -25,26 +25,30 @@ const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
         <div className={s.content}>
           <div className={s.content_left}>
             <h2>{service?.title}</h2>
-            <p>
-              {service?.text}
-            </p>
+            <p>{service?.text}</p>
             <div className={s.content_left__btn}>
-                <div>
-                <Button onClick={scrollToConsultation} padding="17px 40px" variant={IVariant.primary}>
-              <Link href="#consultation">
-                  получить скидку 15% на первый визит
-              </Link>
-                </Button>
-                </div>
               <div>
-                <Button padding="17px 100px" variant={IVariant.outlined}>
-                  записаться онлайн
+                <Button
+                  onClick={scrollToConsultation}
+                  padding="17px 40px"
+                  variant={IVariant.primary}
+                >
+                  <Link href="#consultation">
+                    получить скидку 15% на первый визит
+                  </Link>
                 </Button>
+              </div>
+              <div>
+                <Link href="/record">
+                  <Button padding="17px 100px" variant={IVariant.outlined}>
+                    записаться онлайн
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
           <div className={s.content_right}>
-            <img src={service?.image} alt="image"/>
+            <img src={service?.image} alt="image" />
           </div>
         </div>
       </div>

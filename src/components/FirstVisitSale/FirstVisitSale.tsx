@@ -2,20 +2,39 @@
 import React, { FC, useState } from "react";
 import s from "./FirstVisitSale.module.scss";
 import Button, { IVariant } from "../UI-modals/Button/Button";
+import { usePostPhoneMutation } from "@/services/postConsultationApi";
+import { message } from "antd";
 
 const FirstVisitSale: FC = () => {
   const [number, setNumber] = useState<string>("");
   const [inputError, setInputError] = useState("");
+  const [postPhone] = usePostPhoneMutation()
 
-  const handleSendNumber = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSendNumber = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (number.length === 11) {
-      console.log(typeof number);
       setInputError("Верно");
+      try {
+        await postPhone({phone_number: number})
+        message.success({
+          type: 'success',
+          content: 'С вами скоро свяжется наш администратор',
+          className: 'custom-class',
+          style: {
+            marginTop: '70px',
+          },
+        });
+        setTimeout(() => {
+          setNumber('')
+          setInputError('')
+        }, 2000)
+      } catch (error) {
+        
+      }
     } else if (number.length > 11) {
-      setInputError("Длина номера некорректна. Пример:  +79221110500");
+      setInputError("Введите номер в формате +7XXXXXXXXXX");
     } else {
-      setInputError("Ошибка при вводе номера. Пример: +79221110500");
+      setInputError("Ошибка при вводе номера. Пример: +7XXXXXXXXXX");
     }
   };
 
@@ -32,7 +51,7 @@ const FirstVisitSale: FC = () => {
         <div className={s.send}>
           <input
             type="number"
-            placeholder="+7 922 1110500"
+            placeholder="+7XXXXXXXXXX"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
           />
