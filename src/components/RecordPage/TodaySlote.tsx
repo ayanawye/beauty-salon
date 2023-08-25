@@ -28,7 +28,7 @@ const TodaySlote: FC<TodaySloteProps> = ({ member, onClick }) => {
               {el.time}
             </li>
           ) : (
-            <h3>Нет окошек на сегодня !</h3>
+            <h3 key={el.id}>Нет окошек на сегодня !</h3>
           )
         )
       ) : (
