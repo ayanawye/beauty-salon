@@ -15,16 +15,18 @@ const Main = () => {
         </p>
         <div className={s.main_btn}>
           <div>
-          <Button padding="16px 37px" variant={IVariant.primary}>
-            получить скидку 20% на первый визит
-          </Button>
+            <Link href="#consultation">
+              <Button padding="16px 37px" variant={IVariant.primary}>
+                консультация
+              </Button>
+            </Link>
           </div>
           <div>
-          <Link href="/record">
-          <Button padding="16px 100px" variant={IVariant.outlined_pink}>
-            записаться онлайн
-          </Button>
-          </Link>
+            <Link href="/record">
+              <Button padding="16px 100px" variant={IVariant.outlined_pink}>
+                записаться онлайн
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

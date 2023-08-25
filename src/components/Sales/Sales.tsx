@@ -44,9 +44,11 @@ const Sales = () => {
         </div>
         <div className={s.sale_btn}>
           <div>
-            <Button padding="17px 40px" variant={IVariant.primary}>
-              получить скидку 15% на первый визит
-            </Button>
+            <Link href="#consultation">
+              <Button padding="17px 40px" variant={IVariant.primary}>
+                консультация
+              </Button>
+            </Link>
           </div>
           <div>
             <Link href="/record">

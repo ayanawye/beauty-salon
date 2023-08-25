@@ -1,5 +1,7 @@
+import FirstVisitSale from '@/components/FirstVisitSale/FirstVisitSale';
 import Courses from '@/components/TrainingPage/Courses';
 import Main from '@/components/TrainingPage/Main';
+import TrainBenefit from '@/components/TrainingPage/TrainBenefit';
 import React from 'react';
 
 const Training = () => {
@@ -7,6 +9,8 @@ const Training = () => {
     <>
       <Main />
       <Courses />
+      <FirstVisitSale />
+      <TrainBenefit />
     </>
   );
 };

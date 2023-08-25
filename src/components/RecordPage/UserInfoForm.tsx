@@ -16,7 +16,7 @@ interface FormData {
 }
 
 const UserInfoForm: FC = () => {
-  const {address, comment, fio, email, member, free_time_id, services, phone_number} = useAppSelector(state => state.createRecordSlice)
+  const {address, comment, fio, email, members, free_time_id, services, phone_number} = useAppSelector(state => state.createRecordSlice)
   const {
     register,
     handleSubmit,
@@ -36,7 +36,7 @@ const UserInfoForm: FC = () => {
         comment,
         fio,
         email,
-        member,
+        members,
         free_time_id,
         services,
         phone_number
@@ -59,9 +59,6 @@ const UserInfoForm: FC = () => {
     }
   };
   
-  console.log(address, comment, fio, email, member, free_time_id, services, phone_number);
-  
-
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className="uppercase mb-10">Ваши данные</h2>

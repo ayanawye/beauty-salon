@@ -28,15 +28,15 @@ const ServiceMain: FC<ServiceMainProps> = ({ id }) => {
             <p>{service?.text}</p>
             <div className={s.content_left__btn}>
               <div>
-                <Button
-                  onClick={scrollToConsultation}
-                  padding="17px 40px"
-                  variant={IVariant.primary}
-                >
-                  <Link href="#consultation">
-                    получить скидку 15% на первый визит
-                  </Link>
-                </Button>
+                <Link href="#consultation">
+                  <Button
+                    onClick={scrollToConsultation}
+                    padding="17px 40px"
+                    variant={IVariant.primary}
+                  >
+                    консультация
+                  </Button>
+                </Link>
               </div>
               <div>
                 <Link href="/record">
