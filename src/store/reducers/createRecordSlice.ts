@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export interface INewRecord {
   address: number | null;
-  member: number[];
+  members: number[];
   free_time_id: number[];
   services: number[];
   fio: string;
@@ -15,7 +15,7 @@ export interface INewRecord {
 
 const initialState: INewRecord = {
   address: null,
-  member: [],
+  members: [],
   free_time_id: [],
   services: [],
   fio: "",
@@ -45,7 +45,7 @@ export const createRecordSlice = createSlice({
       state.address = action.payload;
     },
     addSpecialistId(state, action: PayloadAction<number>) {
-      state.member.push(action.payload);
+      state.members.push(action.payload);
     },
     addDate(state, action: PayloadAction<number>) {
       state.free_time_id.push(action.payload);
@@ -66,7 +66,7 @@ export const createRecordSlice = createSlice({
       state.comment = action.payload;
     },
     deleteExpert(state, action: PayloadAction<number>) {
-      state.member = state.member.filter((el) => el !== action.payload);
+      state.members = state.members.filter((el) => el !== action.payload);
     },
     deleteService(state, action: PayloadAction<number>) {
       state.services = state.services.filter((el) => el !== action.payload);

@@ -52,7 +52,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    beauty_day.salon
+                    kudryashka.salon
                   </a>
                 </div>
               </div>

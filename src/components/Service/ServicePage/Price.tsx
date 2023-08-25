@@ -21,15 +21,17 @@ const Price: FC<ServicePriceProps> = ({ id }) => {
             servicePrice?.map((el) => (
               <div key={el.id}>
                 <h4>{el.title}</h4>
-                <p>{el.price}</p>
+                <p>{el.price}P</p>
               </div>
             ))}
         </div>
         <div className={s.price_btn}>
           <div>
-            <Button padding="17px 40px" variant={IVariant.primary}>
-              получить скидку 15% на первый визит
-            </Button>
+            <Link href="#sales">
+              <Button padding="17px 40px" variant={IVariant.primary}>
+                консультация
+              </Button>
+            </Link>
           </div>
           <div>
             <Link href="/record">

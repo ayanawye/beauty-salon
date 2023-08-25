@@ -1,10 +1,9 @@
 import { FC } from "react";
 import s from "./RecordingPage.module.scss";
-import { useAppDispatch } from "@/store/store";
+import { useAppDispatch, useAppSelector } from "@/store/store";
 import { createRecordSlice } from "@/store/reducers/createRecordSlice";
 import { memberIdSlice } from "@/store/reducers/memberIdSlice";
 import { useGetSpecialistsByAddressQuery } from "@/services/getSpecialist";
-import { useGetTodaySloteQuery } from "@/services/getDate";
 import TodaySlote from "./TodaySlote";
 
 interface SpecialistItemProps {
@@ -13,8 +12,10 @@ interface SpecialistItemProps {
 }
 
 const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
+  const {members} = useAppSelector(state => state.createRecordSlice)
   const dispatch = useAppDispatch();
   const { data: specialists } = useGetSpecialistsByAddressQuery(id);
+  const filteredMembers = specialists?.filter(el => !members.includes(el.id))
 
   const handleAddSpecialist = (id: number) => {
     dispatch(createRecordSlice.actions.addSpecialistId(id));
@@ -26,8 +27,8 @@ const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
     <div>
       <h2 className="uppercase mb-10">Выбрать специалиста</h2>
       <div className={s.specialist}>
-        {specialists?.length !== 0 &&
-          specialists?.map((el) => (
+        {filteredMembers?.length !== 0 ?
+          filteredMembers?.map((el) => (
             <div key={el.id}>
               <div className={s.top}>
                 <img src={el.avatar} alt="expert" />
@@ -41,7 +42,7 @@ const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
                 <TodaySlote onClick={onClick} member={el.id}/>
               </div>
             </div>
-          ))}
+          )) : <h3 className="font-semibold text-center uppercase text-xl">специалисты недоступны</h3>}
       </div>
     </div>
   );

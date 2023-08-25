@@ -25,7 +25,7 @@ const ServiceList: FC<ServiceListProps> = ({ id, onClick }) => {
         servises?.map((el: any) => (
           <div
             key={el.id}
-            onClick={() => handleAddService(1)}
+            onClick={() => handleAddService(el.id)}
             className={s.service}
           >
             <h3 className="uppercase">{el?.title}</h3>
