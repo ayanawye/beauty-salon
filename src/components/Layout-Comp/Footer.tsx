@@ -59,7 +59,7 @@ const Footer = () => {
               </div>
             </div>
             <div className={s.footer_img}>
-            {/* <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A865479aa5656044a02bc59b6ce0c61b870459acd46dab82bc70a82c0010175f3&amp;source=constructor" width="100%" height="100%" frameBorder="0"></iframe> */}
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A865479aa5656044a02bc59b6ce0c61b870459acd46dab82bc70a82c0010175f3&amp;source=constructor" width="100%" height="100%" frameBorder="0"></iframe>
             </div>
           </div>
         </footer>

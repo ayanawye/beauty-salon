@@ -69,7 +69,7 @@ const RecordingPage = () => {
           </Link>
           <img src="/record-girl.jpg" alt="girl" />
         </div>
-        <div className={s.right}>
+        {/* <div className={s.right}>
           {selectedBlock === "address" && (
             <>
               <div className={s.main_title}>
@@ -275,7 +275,7 @@ const RecordingPage = () => {
               Далее
             </Button>
           )}
-        </div>
+        </div> */}
       </div>
     </section>
   );
