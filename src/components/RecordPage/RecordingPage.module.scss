@@ -3,11 +3,6 @@
 
 .record {
   height: 100vh;
-  .main_title{
-    img{
-      display: none;
-    }
-  }
   &_content {
     display: flex;
     height: 100%;
@@ -39,6 +34,19 @@
       overflow: hidden;
       overflow-y: scroll;
       position: relative;
+      .main_title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid black;
+        img {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+        }
+      }
       h2 {
         font-size: 32px;
         text-align: center;
@@ -65,7 +73,7 @@
         object-fit: cover;
         border-radius: 10px;
       }
-      .svg{
+      .svg {
         width: 30px;
         height: 30px;
         cursor: pointer;
@@ -399,19 +407,6 @@
 }
 @media (max-width: 800px) {
   .record {
-    .main_title{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      column-gap: 10px;
-      margin-bottom: 30px;
-              border-bottom: 1px solid black;
-      img{
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-      }
-    }
     &_content {
       .left {
         width: 0%;
