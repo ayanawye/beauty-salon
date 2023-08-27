@@ -31,7 +31,10 @@ const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
           filteredMembers?.map((el) => (
             <div key={el.id}>
               <div className={s.top}>
+                <div>
+
                 <img src={el.avatar} alt="expert" />
+                </div>
                 <div>
                   <h3 onClick={() => handleAddSpecialist(el.id)}>{el.fio}</h3>
                   <p>{el.status}</p>
