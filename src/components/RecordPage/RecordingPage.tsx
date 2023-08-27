@@ -100,7 +100,7 @@ const RecordingPage = () => {
               </div>
             </>
           )}
-          {/* {selectedBlock === "selection" && (
+          {selectedBlock === "selection" && (
             <>
               <div className={s.main_title}>
                 <img
@@ -226,13 +226,13 @@ const RecordingPage = () => {
               </div>
             </>
           )}
-          {selectedBlock === "specialist" && (
+          {/* {selectedBlock === "specialist" && (
             <SpecialistItem
               onClick={() => setSelectedBlock("selection")}
               id={address}
             />
-          )}
-          {selectedBlock === "date" && filterMember?.length !== 0 && (
+          )} */}
+          {/* {selectedBlock === "date" && filterMember?.length !== 0 && (
             <>
               <div className={s.main_title}>
                 <img
@@ -252,8 +252,8 @@ const RecordingPage = () => {
                 </>
               ))}
             </>
-          )}
-          {selectedBlock === "service" && (
+          )} */}
+          {/* {selectedBlock === "service" && (
             <div>
               <h2 className="uppercase mb-10">Выбрать услуги</h2>
               {members?.map((el) => (
@@ -263,8 +263,8 @@ const RecordingPage = () => {
                 />
               ))}
             </div>
-          )}
-          {selectedBlock === "userInfo" && <UserInfoForm />}
+          )} */}
+          {/* {selectedBlock === "userInfo" && <UserInfoForm />}
           {btnVisible && (
             <Button
               type="submit"
