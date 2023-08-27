@@ -17,8 +17,6 @@ export async function generateStaticParams() {
 }
 
 const ServicePage: FC = ({ params }: any) => {
-  console.log(params);
-
   return (
     <>
       <ServiceMain id={Number(params?.id)} />

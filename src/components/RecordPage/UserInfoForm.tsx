@@ -3,10 +3,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import s from "./RecordingPage.module.scss";
 import Button, { IVariant } from "../UI-modals/Button/Button";
 import { useAppDispatch, useAppSelector } from "@/store/store";
-import { createRecordSlice, postRecord } from "@/store/reducers/createRecordSlice";
-import {message} from 'antd';
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import {
+  createRecordSlice,
+  postRecord,
+} from "@/store/reducers/createRecordSlice";
+import { message } from "antd";
+import { memberIdSlice } from "@/store/reducers/memberIdSlice";
 
 interface FormData {
   fio: string;
@@ -16,13 +18,15 @@ interface FormData {
 }
 
 const UserInfoForm: FC = () => {
-  const {address, comment, fio, email, members, free_time_id, services, phone_number} = useAppSelector(state => state.createRecordSlice)
+  const { address, members, free_time_id, services } = useAppSelector(
+    (state) => state.createRecordSlice
+  );
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
@@ -30,35 +34,44 @@ const UserInfoForm: FC = () => {
       dispatch(createRecordSlice.actions.addEmail(data.email));
       dispatch(createRecordSlice.actions.addNumber(data.phone_number));
       dispatch(createRecordSlice.actions.addComment(data.comment));
-      
-      await dispatch(postRecord({
-        address,
-        comment,
-        fio,
-        email,
-        members,
-        free_time_id,
-        services,
-        phone_number
-      }));
-  
+
+      await dispatch(
+        postRecord({
+          address,
+          comment: data.comment,
+          fio: data.fio,
+          email: data.email,
+          members,
+          free_time_id,
+          services,
+          phone_number: data.phone_number,
+        })
+      );
+
       message.success({
-        type: 'success',
-        content: 'Вы успешно записались на услугу',
-        className: 'custom-class',
+        type: "success",
+        content: "Вы успешно записались на услугу",
+        className: "custom-class",
         style: {
-          marginTop: '70px',
+          marginTop: "70px",
         },
       });
+      dispatch(memberIdSlice.actions.updateDate());
       setTimeout(() => {
         window.location.href = "/";
-      }, 1000)
-      
+      }, 1000);
     } catch (error) {
-      console.error("Произошла ошибка:", error);
+      message.error({
+        type: "error",
+        content: "Произошла ошибка",
+        className: "custom-class",
+        style: {
+          marginTop: "70px",
+        },
+      });
     }
   };
-  
+
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className="uppercase mb-10">Ваши данные</h2>
@@ -83,7 +96,9 @@ const UserInfoForm: FC = () => {
             },
           })}
         />
-        {errors.email && <p className="text-white mt-4">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-white mt-4">{errors.email.message}</p>
+        )}
       </div>
 
       <div>
@@ -98,7 +113,9 @@ const UserInfoForm: FC = () => {
             },
           })}
         />
-        {errors.phone_number && <p className="text-white mt-4">{errors.phone_number.message}</p>}
+        {errors.phone_number && (
+          <p className="text-white mt-4">{errors.phone_number.message}</p>
+        )}
       </div>
 
       <div>
@@ -107,9 +124,9 @@ const UserInfoForm: FC = () => {
       </div>
 
       <div className={s.form_btn}>
-      <Button type="submit" padding="24px 0" variant={IVariant.black}>
-      Записаться
-      </Button>
+        <Button type="submit" padding="24px 0" variant={IVariant.black}>
+          Записаться
+        </Button>
       </div>
     </form>
   );

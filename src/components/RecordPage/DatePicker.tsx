@@ -9,6 +9,7 @@ import s from './RecordingPage.module.scss'
 import { useAppDispatch, useAppSelector } from "@/store/store";
 import { createRecordSlice } from "@/store/reducers/createRecordSlice";
 import { useGetSpecialistsByAddressQuery } from "@/services/getSpecialist";
+import { memberIdSlice } from "@/store/reducers/memberIdSlice";
 
 interface DatePickerProps {
   member: any,
@@ -31,13 +32,19 @@ const DatePicker: FC<DatePickerProps> = ({member, onClick}) => {
       break;
     }
   }
-  let foundDateArray = [] as any
   
   const addTime = (time: number) => {
-    dispatch(createRecordSlice.actions.addDate(time))
-    foundDateArray.push({"date": foundDate, "time": formattedDate});
-    localStorage.setItem('foundDate', JSON.stringify(foundDateArray))
+    dispatch(createRecordSlice.actions.addDate(time));
+    let foundDateArray: any = {};
+    const newData = {
+      date: foundDate.filter((el: any) => el.id === time),
+      time: formattedDate,
+    }
+    const updatedData = {...foundDateArray, newData, id: time};
+    dispatch(memberIdSlice.actions.addDate(updatedData))
   }
+  
+  
   useEffect(() => {
     if(members.length === free_time_id.length){
       onClick()
@@ -45,9 +52,9 @@ const DatePicker: FC<DatePickerProps> = ({member, onClick}) => {
   }, [members.length, free_time_id.length])
   
   return (
-    <div>
+    <div className="mb-5">
       {expert?.length !== 0 && expert?.filter(el => el.id === member)?.map(el => (
-        <h3 key={el.id} className="font-semibold text-center mb-4">{el.fio}</h3>
+          <h3 key={el.id} className="font-semibold uppercase text-center mb-4">{el.fio}</h3>
       ))}
       <div className={s.date}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -65,10 +72,10 @@ const DatePicker: FC<DatePickerProps> = ({member, onClick}) => {
                     <li onClick={() => addTime(el.id)} key={el.id}>
                       {el.time}
                     </li>
-                  ) : <h3  key={el.id}>Нет окошек на эту дату !</h3>
+                  ) : <h3 key={el.id}>Нет окошек на эту дату!</h3>
                 )
               ) : (
-                <h3>Нет окошек на эту дату !</h3>
+                <h3>Нет окошек на эту дату!</h3>
               )}
             </ul>
         </DemoContainer>

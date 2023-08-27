@@ -56,11 +56,11 @@
       border: 1px solid var(--unnamed, rgba(16, 16, 16, 0.9));
     }
     img {
+      position: absolute;
       width: 354px;
       height: 354px;
       right: 0;
       top: 0;
-      position: absolute;
     }
   }
   .active {

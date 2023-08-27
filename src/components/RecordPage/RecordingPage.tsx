@@ -13,44 +13,34 @@ import UserInfoForm from "./UserInfoForm";
 import { useGetServiceQuery } from "@/services/getServiceApi";
 import { useGetSpecialistsByAddressQuery } from "@/services/getSpecialist";
 import Link from "next/link";
+import { memberIdSlice } from "@/store/reducers/memberIdSlice";
 
 const RecordingPage = () => {
   const { address, members, free_time_id, services } = useAppSelector(
     (state) => state.createRecordSlice
   );
-  console.log(address, members, free_time_id, services);
+  const { memberId, changeDate } = useAppSelector(
+    (state) => state.memberIdSlice
+  );
 
-  const [date, setDate] = useState([]);
   const [selectedBlock, setSelectedBlock] = useState("address");
   const dispatch = useAppDispatch();
-
-  const { memberId } = useAppSelector((state) => state.memberIdSlice);
   const { data: service } = useGetServiceQuery("");
   const { data: membersList } = useGetSpecialistsByAddressQuery(address);
   const filterService = service?.filter((el: any) => services.includes(el.id));
   const filterMember = membersList?.filter((el: any) =>
     members.includes(el.id)
   );
-  console.log(date);
-
   dayjs.locale("ru");
-  const formattedDataDayjs = date?.map((item: any) => ({
+
+  let formattedDataDayjs = changeDate?.map((item: any) => ({
     ...item,
-    formattedDate: dayjs(item.time).format("dddd, D MMMM"),
+    formattedDate: dayjs(item.newData.time).format("dddd, D MMMM"),
   }));
 
   useEffect(() => {
-    if (address) {
-      setSelectedBlock("selection");
-    }
-    localStorage.removeItem("foundDate");
-  }, []);
-
-  useEffect(() => {
-    const date = localStorage.getItem("foundDate");
-    const parsedFoundDateArray = date ? JSON.parse(date) : [];
-    setDate(parsedFoundDateArray);
-  }, [free_time_id]);
+    setSelectedBlock("selection");
+  }, [address]);
 
   const handleAddAddress = (id: number) => {
     dispatch(createRecordSlice.actions.addAddress(id));
@@ -59,15 +49,7 @@ const RecordingPage = () => {
 
   const deleteData = (id: number) => {
     dispatch(createRecordSlice.actions.deleteDate(id));
-    const storedArray = localStorage.getItem("foundDate");
-    const parsedStoredArray = storedArray ? JSON.parse(storedArray) : [];
-    const updatedArray = parsedStoredArray.map((item: any) => {
-      if (item.date) {
-        item = item.date.filter((dateItem: any) => dateItem.id !== id);
-      }
-      return item;
-    });
-    localStorage.setItem("foundDate", JSON.stringify(updatedArray));
+    dispatch(memberIdSlice.actions.deleteDate(id));
   };
 
   const nextPage =
@@ -75,6 +57,8 @@ const RecordingPage = () => {
     members.length !== 0 &&
     services.length !== 0 &&
     free_time_id.length !== 0;
+
+  const btnVisible = nextPage && selectedBlock === "selection";
 
   return (
     <section className={s.record}>
@@ -85,10 +69,15 @@ const RecordingPage = () => {
           </Link>
           <img src="/record-girl.jpg" alt="girl" />
         </div>
-        <div className={s.right}>
+        {/* <div className={s.right}>
           {selectedBlock === "address" && (
             <>
-              <h2 className="uppercase">выберите филиал</h2>
+              <div className={s.main_title}>
+                <Link href="/">
+                  <img src="/arrow.svg" alt="back-svg" />
+                </Link>
+                <h2 className="uppercase">выберите филиал</h2>
+              </div>
               <div
                 className="cursor-pointer"
                 onClick={() => handleAddAddress(2)}
@@ -113,7 +102,15 @@ const RecordingPage = () => {
           )}
           {selectedBlock === "selection" && (
             <>
-              <h2 className="uppercase mb-16">кудряшка</h2>
+              <div className={s.main_title}>
+                <img
+                  src="/arrow.svg"
+                  onClick={() => setSelectedBlock("address")}
+                  className={s.svg}
+                  alt="back-svg"
+                />
+                <h2 className="uppercase">кудряшка</h2>
+              </div>
               <div className={s.selected_box}>
                 {members.length === 0 ? (
                   <div
@@ -143,7 +140,7 @@ const RecordingPage = () => {
                                 )
                               }
                             >
-                              <img src="/delete.svg" alt="" />
+                              <img src="/delete.svg" alt="delete" />
                             </div>
                           </div>
                         ))}
@@ -166,29 +163,38 @@ const RecordingPage = () => {
                   </div>
                 ) : (
                   <>
-                    {date.length !== 0 &&
-                      date.map((el: any) => (
-                        <div key={el.id} className={s.selected_block}>
-                          <img src="/date.svg" alt="svg" />
-                          <div className={s.right_chosen_time}>
-                            {formattedDataDayjs.map((el) => (
-                              <React.Fragment key={el}>
-                                <p className={s.day}>{el.formattedDate}</p>
-                                {el.date.map((timeObj: any) => (
-                                  <React.Fragment key={timeObj.time}>
+                    {formattedDataDayjs.length !== 0 && (
+                      <div className={s.selected_block}>
+                        <img src="/date.svg" alt="svg" />
+                        {members.length > 1 && (
+                          <p
+                            onClick={() => setSelectedBlock("date")}
+                            className={s.add_member}
+                          >
+                            +
+                          </p>
+                        )}
+                        <div className={s.right_chosen_time}>
+                          {formattedDataDayjs?.map((el, index) => (
+                            <div className={s.right_chosen_time} key={index}>
+                              {el?.newData.date?.map((timeObj: any) => (
+                                <div key={el.id}>
+                                  <div>
+                                    <p className={s.day}>{el.formattedDate}</p>
                                     <p key={timeObj.time}>{timeObj.time}</p>
-                                    <img
-                                      onClick={() => deleteData(timeObj.id)}
-                                      src="/delete.svg"
-                                      alt="svg"
-                                    />
-                                  </React.Fragment>
-                                ))}
-                              </React.Fragment>
-                            ))}
-                          </div>
+                                  </div>
+                                  <img
+                                    onClick={() => deleteData(timeObj.id)}
+                                    src="/delete.svg"
+                                    alt="svg"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      </div>
+                    )}
                   </>
                 )}
                 <div className={`${s.selected_block_service}`}>
@@ -226,26 +232,40 @@ const RecordingPage = () => {
               id={address}
             />
           )}
-          {selectedBlock === "date" &&
-            filterMember?.length !== 0 &&
-            filterMember?.map((el) => (
-              <>
-                <h2 className="uppercase mb-10">Выбрать дату и время</h2>
-                <DateCalendar
-                  key={el.id}
-                  member={el.id}
+          {selectedBlock === "date" && filterMember?.length !== 0 && (
+            <>
+              <div className={s.main_title}>
+                <img
                   onClick={() => setSelectedBlock("selection")}
+                  src="/arrow.svg"
+                  alt="back-svg"
                 />
-              </>
-            ))}
+                <h2 className="uppercase">Выбрать дату и время</h2>
+              </div>
+              {filterMember?.map((el) => (
+                <>
+                  <DateCalendar
+                    key={el.id}
+                    member={el.id}
+                    onClick={() => setSelectedBlock("selection")}
+                  />
+                </>
+              ))}
+            </>
+          )}
           {selectedBlock === "service" && (
-            <ServiceList
-              onClick={() => setSelectedBlock("selection")}
-              id={memberId}
-            />
+            <div>
+              <h2 className="uppercase mb-10">Выбрать услуги</h2>
+              {members?.map((el) => (
+                <ServiceList
+                  onClick={() => setSelectedBlock("selection")}
+                  id={el}
+                />
+              ))}
+            </div>
           )}
           {selectedBlock === "userInfo" && <UserInfoForm />}
-          {nextPage && selectedBlock !== "userInfo" && (
+          {btnVisible && (
             <Button
               type="submit"
               onClick={() => setSelectedBlock("userInfo")}
@@ -255,7 +275,7 @@ const RecordingPage = () => {
               Далее
             </Button>
           )}
-        </div>
+        </div> */}
       </div>
     </section>
   );
