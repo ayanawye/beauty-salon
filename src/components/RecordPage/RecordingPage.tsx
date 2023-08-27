@@ -253,7 +253,7 @@ const RecordingPage = () => {
               ))}
             </>
           )}
-          {/* {selectedBlock === "service" && (
+          {selectedBlock === "service" && (
             <div>
               <h2 className="uppercase mb-10">Выбрать услуги</h2>
               {members?.map((el) => (
@@ -263,7 +263,7 @@ const RecordingPage = () => {
                 />
               ))}
             </div>
-          )} */}
+          )}
           {/* {selectedBlock === "userInfo" && <UserInfoForm />}
           {btnVisible && (
             <Button
