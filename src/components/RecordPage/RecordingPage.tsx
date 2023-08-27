@@ -72,12 +72,12 @@ const RecordingPage = () => {
         <div className={s.right}>
           {selectedBlock === "address" && (
             <>
-              {/* <div className={s.main_title}>
+              <div className={s.main_title}>
                 <Link href="/">
                   <img src="/arrow.svg" alt="back-svg" />
-                </Link> */}
+                </Link>
                 <h2 className="uppercase">выберите филиал</h2>
-              {/* </div> */}
+              </div>
               <div
                 className="cursor-pointer"
                 onClick={() => handleAddAddress(2)}
@@ -100,17 +100,17 @@ const RecordingPage = () => {
               </div>
             </>
           )}
-          {selectedBlock === "selection" && (
+          {/* {selectedBlock === "selection" && (
             <>
-              {/* <div className={s.main_title}>
+              <div className={s.main_title}>
                 <img
                   src="/arrow.svg"
                   onClick={() => setSelectedBlock("address")}
                   className={s.svg}
                   alt="back-svg"
-                /> */}
+                />
                 <h2 className="uppercase">кудряшка</h2>
-              {/* </div> */}
+              </div>
               <div className={s.selected_box}>
                 {members.length === 0 ? (
                   <div
@@ -234,14 +234,14 @@ const RecordingPage = () => {
           )}
           {selectedBlock === "date" && filterMember?.length !== 0 && (
             <>
-              {/* <div className={s.main_title}>
+              <div className={s.main_title}>
                 <img
                   onClick={() => setSelectedBlock("selection")}
                   src="/arrow.svg"
                   alt="back-svg"
-                /> */}
+                />
                 <h2 className="uppercase">Выбрать дату и время</h2>
-              {/* </div> */}
+              </div>
               {filterMember?.map((el) => (
                 <>
                   <DateCalendar
@@ -274,7 +274,7 @@ const RecordingPage = () => {
             >
               Далее
             </Button>
-          )}
+          )} */}
         </div>
       </div>
     </section>
