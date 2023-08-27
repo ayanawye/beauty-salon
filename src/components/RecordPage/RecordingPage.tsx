@@ -19,7 +19,7 @@ const RecordingPage = () => {
   const { address, members, free_time_id, services } = useAppSelector(
     (state) => state.createRecordSlice
   );
-  const { memberId, changeDate } = useAppSelector(
+  const { changeDate } = useAppSelector(
     (state) => state.memberIdSlice
   );
 
