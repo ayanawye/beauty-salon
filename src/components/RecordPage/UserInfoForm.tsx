@@ -59,7 +59,7 @@ const UserInfoForm: FC = () => {
       dispatch(memberIdSlice.actions.updateDate());
       setTimeout(() => {
         window.location.href = "/";
-      }, 1000);
+      }, 3000);
     } catch (error) {
       message.error({
         type: "error",
