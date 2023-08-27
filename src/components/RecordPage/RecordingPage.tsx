@@ -23,7 +23,6 @@ const RecordingPage = () => {
     (state) => state.memberIdSlice
   );
 
-  console.log(address, members, free_time_id, services);
   const [selectedBlock, setSelectedBlock] = useState("address");
   const dispatch = useAppDispatch();
   const { data: service } = useGetServiceQuery("");
@@ -33,7 +32,6 @@ const RecordingPage = () => {
     members.includes(el.id)
   );
   dayjs.locale("ru");
-  console.log(changeDate);
 
   let formattedDataDayjs = changeDate?.map((item: any) => ({
     ...item,

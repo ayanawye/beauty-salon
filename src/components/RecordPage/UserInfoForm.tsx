@@ -55,7 +55,14 @@ const UserInfoForm: FC = () => {
       }, 1000)
       
     } catch (error) {
-      console.error("Произошла ошибка:", error);
+      message.error({
+        type: 'error',
+        content: 'Произошла ошибка',
+        className: 'custom-class',
+        style: {
+          marginTop: '70px',
+        },
+      });
     }
   };
   

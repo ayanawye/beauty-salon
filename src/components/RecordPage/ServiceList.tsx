@@ -16,7 +16,6 @@ const ServiceList: FC<ServiceListProps> = ({ id, onClick }) => {
   const { data: servises } = useGetMemberServiceQuery(id);
   const dispatch = useAppDispatch();
   const mySpecialist = members?.find(el => el.id === id)
-  console.log(mySpecialist);
   
   const handleAddService = (id: number) => {
     dispatch(createRecordSlice.actions.addService(id));

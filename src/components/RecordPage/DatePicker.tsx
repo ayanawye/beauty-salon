@@ -41,7 +41,6 @@ const DatePicker: FC<DatePickerProps> = ({member, onClick}) => {
       time: formattedDate,
     }
     const updatedData = {...foundDateArray, newData, id: time};
-    console.log(updatedData);
     dispatch(memberIdSlice.actions.addDate(updatedData))
   }
   

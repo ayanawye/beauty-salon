@@ -18,7 +18,6 @@ const TodaySlote: FC<TodaySloteProps> = ({ member, onClick }) => {
   
 
   const handleAddSpecialistDate = (date: any) => {
-    console.log(date);
     let foundDateArray: any = {};
     const newData = {
       date: [date],
