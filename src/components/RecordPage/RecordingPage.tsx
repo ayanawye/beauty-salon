@@ -140,7 +140,7 @@ const RecordingPage = () => {
                                 )
                               }
                             >
-                              <img src="/delete.svg" alt="" />
+                              <img src="/delete.svg" alt="delete" />
                             </div>
                           </div>
                         ))}

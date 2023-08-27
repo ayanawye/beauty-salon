@@ -3,6 +3,7 @@ import React from "react";
 import s from "./Footer.module.scss";
 import { useGetAddressQuery } from "@/services/getAddressApi";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Footer = () => {
   const { data: addresses } = useGetAddressQuery("");
@@ -18,8 +19,8 @@ const Footer = () => {
               {addresses?.length !== 0 &&
                 addresses?.map((address) => (
                   <div key={address.id} className="flex mb-5 gap-x-6">
-                    <div>
-                      <img src="/phone.svg" alt="phone" />
+                    <div className={s.image_container}>
+                      <Image layout="fill" className={s.image} src="/phone.svg" alt="phone" />
                     </div>
                     <div>
                       <p className="uppercase text-base">
@@ -41,8 +42,8 @@ const Footer = () => {
                   </div>
                 ))}
               <div className="flex mt-5 gap-x-6">
-                <div>
-                  <img src="/insta.svg" alt="phone" />
+                <div className={s.image_container}>
+                  <Image layout="fill" className={s.image} src="/insta.svg" alt="insta" />
                 </div>
                 <div>
                   <p className="uppercase text-base">instagram</p>
