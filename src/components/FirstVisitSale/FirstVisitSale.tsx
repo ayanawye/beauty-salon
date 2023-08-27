@@ -50,7 +50,7 @@ const FirstVisitSale: FC = () => {
         </p>
         <div className={s.send}>
           <input
-            type="number"
+            type="tel"
             placeholder="+7XXXXXXXXXX"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
