@@ -5,8 +5,7 @@ import Button, { IVariant } from "../UI-modals/Button/Button";
 import { useAppDispatch, useAppSelector } from "@/store/store";
 import { createRecordSlice, postRecord } from "@/store/reducers/createRecordSlice";
 import {message} from 'antd';
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { memberIdSlice } from "@/store/reducers/memberIdSlice";
 
 interface FormData {
   fio: string;
@@ -16,7 +15,7 @@ interface FormData {
 }
 
 const UserInfoForm: FC = () => {
-  const {address, comment, fio, email, members, free_time_id, services, phone_number} = useAppSelector(state => state.createRecordSlice)
+  const {address, members, free_time_id, services} = useAppSelector(state => state.createRecordSlice)
   const {
     register,
     handleSubmit,
@@ -33,13 +32,13 @@ const UserInfoForm: FC = () => {
       
       await dispatch(postRecord({
         address,
-        comment,
-        fio,
-        email,
+        comment: data.comment,
+        fio: data.fio,
+        email: data.email,
         members,
         free_time_id,
         services,
-        phone_number
+        phone_number: data.phone_number,
       }));
   
       message.success({
@@ -50,6 +49,7 @@ const UserInfoForm: FC = () => {
           marginTop: '70px',
         },
       });
+      dispatch(memberIdSlice.actions.updateDate())
       setTimeout(() => {
         window.location.href = "/";
       }, 1000)
