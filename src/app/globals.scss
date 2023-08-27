@@ -66,6 +66,10 @@ input[type="number"]:focus {
 }
 .css-1rv8zyt-MuiStack-root>:not(style):not(style) {
   margin: 0 auto !important;
+  width: 100% !important;
+}
+.css-147rllg > :not(style):not(style){
+  margin: 0 auto;
 }
 
 @media (max-width: 1000px){
@@ -91,5 +95,10 @@ input[type="number"]:focus {
     width: 100% !important;
     margin: 0 auto;
     height: 300px !important;
+  }
+}
+@media (max-width: 450px){
+  .css-cwhad8-MuiDateCalendar-root {
+    width: 250px !important;
   }
 }

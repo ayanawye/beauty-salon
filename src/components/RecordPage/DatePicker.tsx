@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
+import "dayjs/locale/ru";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -25,7 +26,8 @@ const DatePicker: FC<DatePickerProps> = ({ member, onClick }) => {
   const { data: dates } = useGetWeekDateQuery(member);
   const dispatch = useAppDispatch();
   const formattedDate = dayjs(value).format("YYYY-MM-DD");
-
+  dayjs.locale("ru");
+  
   let foundDate = null as any;
   for (const key in dates) {
     if (key === formattedDate) {
