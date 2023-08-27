@@ -73,7 +73,7 @@ const DatePicker: FC<DatePickerProps> = ({member, onClick}) => {
                     <li onClick={() => addTime(el.id)} key={el.id}>
                       {el.time}
                     </li>
-                  ) : <h3>Нет окошек на эту дату!</h3>
+                  ) : <h3 key={el.id}>Нет окошек на эту дату!</h3>
                 )
               ) : (
                 <h3>Нет окошек на эту дату!</h3>
