@@ -6,7 +6,6 @@ import { ISpecialist } from "@/models/ISpecialist";
 import { useAppDispatch } from "@/store/store";
 import { createRecordSlice } from "@/store/reducers/createRecordSlice";
 import Link from "next/link";
-import Image from "next/image";
 
 interface ExpertsListProps {
   experts: ISpecialist[] | undefined;
@@ -29,9 +28,7 @@ const ExpertsList: FC<ExpertsListProps> = ({ experts, address }) => {
           {experts?.length !== 0 &&
             experts?.map((expert) => (
               <div key={expert.id}>
-                <div className={s.image_container}>
-                <Image layout="fill" src={expert?.avatar} alt="avatar" className={s.image} />
-                </div>
+                <img src={expert?.avatar} alt="avatar"/>
                 <div className={s.content}>
                   <div>
                     <p className={s.work}>{expert?.status}</p>

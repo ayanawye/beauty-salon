@@ -8,29 +8,27 @@ import { message } from "antd";
 const FirstVisitSale: FC = () => {
   const [number, setNumber] = useState<string>("");
   const [inputError, setInputError] = useState("");
-  const [postPhone] = usePostPhoneMutation()
+  const [postPhone] = usePostPhoneMutation();
 
   const handleSendNumber = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (number.length === 11) {
       setInputError("Верно");
       try {
-        await postPhone({phone_number: number})
+        await postPhone({ phone_number: number });
         message.success({
-          type: 'success',
-          content: 'С вами скоро свяжется наш администратор',
-          className: 'custom-class',
+          type: "success",
+          content: "С вами скоро свяжется наш администратор",
+          className: "custom-class",
           style: {
-            marginTop: '70px',
+            marginTop: "70px",
           },
         });
         setTimeout(() => {
-          setNumber('')
-          setInputError('')
-        }, 2000)
-      } catch (error) {
-        
-      }
+          setNumber("");
+          setInputError("");
+        }, 2000);
+      } catch (error) {}
     } else if (number.length > 11) {
       setInputError("Введите номер в формате +7XXXXXXXXXX");
     } else {
@@ -41,16 +39,14 @@ const FirstVisitSale: FC = () => {
   return (
     <div className={s.sale} id="consultation">
       <form onSubmit={handleSendNumber}>
-        <h2 className="uppercase font-normal text-center">
-        консультация
-        </h2>
+        <h2 className="uppercase font-normal text-center">консультация</h2>
         <p className="font-normal text-center">
           Мы свяжемся с вами в течение нескольких минут и <br /> запишем вас на
           удобную дату
         </p>
         <div className={s.send}>
           <input
-            type="number"
+            type="tel"
             placeholder="+7XXXXXXXXXX"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
@@ -61,9 +57,9 @@ const FirstVisitSale: FC = () => {
             </Button>
           </div>
         </div>
-          {setInputError.length !== 0 && (
-            <h4 className="mt-5 text-center">{inputError}</h4>
-          )}
+        {setInputError.length !== 0 && (
+          <h4 className="mt-5 text-center">{inputError}</h4>
+        )}
       </form>
     </div>
   );

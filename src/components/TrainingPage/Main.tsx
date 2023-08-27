@@ -2,7 +2,6 @@
 import React from "react";
 import s from "./Training.module.scss";
 import Button, { IVariant } from "@/components/UI-modals/Button/Button";
-import Image from "next/image";
 import Link from "next/link";
 
 const Main = () => {
@@ -11,9 +10,10 @@ const Main = () => {
       <div className={s.content}>
         <div className={s.main_left}>
           <h2 className="uppercase">Обучение в салоне красоты Кудряшка</h2>
-          <p className="mt-3.5">
-            Все виды стрижек. В услугу входит мытье, стрижка и укладка. Мы даем
-            гарантию на наши услуги!
+          <p>
+            Предоставляем возможность обучиться разносторонним навыкам красоты и
+            ухода: визажу, маникюру, педикюру, наращиванию ресниц, а также
+            престижному курсу <span>Парикмахер-универсал</span> .
           </p>
           <div className={s.main_left_btn}>
             <div>
@@ -25,9 +25,9 @@ const Main = () => {
             </div>
             <div>
               <Link href="/record">
-              <Button padding="16px 10px" variant={IVariant.outlined}>
-                записаться онлайн
-              </Button>
+                <Button padding="16px 10px" variant={IVariant.outlined}>
+                  записаться онлайн
+                </Button>
               </Link>
             </div>
           </div>

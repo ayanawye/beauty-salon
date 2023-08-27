@@ -51,20 +51,13 @@
           font-weight: 600;
         }
       }
-      .image_container {
-        width: 100%;
-        & > div {
-          position: unset !important;
-        }
-        .image {
-          width: 362px !important;
-          height: 362px !important;
-          position: relative !important;
-          margin: 0 auto;
-          border-radius: 50%;
-          object-position: center;
-          object-fit: cover;
-        }
+      img {
+        width: 362px;
+        height: 362px;
+        margin: 0 auto;
+        border-radius: 50%;
+        object-position: center;
+        object-fit: cover;
       }
     }
   }
@@ -90,10 +83,8 @@
     .cards {
       & > div {
         width: calc(33% - 33px);
-        .image_container {
-          .image {
-            height: 270px !important;
-          }
+        img {
+          height: 270px;
         }
       }
     }
@@ -105,10 +96,8 @@
       padding: 0 5px;
       & > div {
         width: calc(50% - 25px);
-        .image_container {
-          .image {
-            height: 320px !important;
-          }
+        img {
+          height: 320px;
         }
       }
     }
