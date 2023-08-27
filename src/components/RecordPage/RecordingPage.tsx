@@ -226,12 +226,12 @@ const RecordingPage = () => {
               </div>
             </>
           )}
-          {/* {selectedBlock === "specialist" && (
+          {selectedBlock === "specialist" && (
             <SpecialistItem
               onClick={() => setSelectedBlock("selection")}
               id={address}
             />
-          )} */}
+          )}
           {/* {selectedBlock === "date" && filterMember?.length !== 0 && (
             <>
               <div className={s.main_title}>
