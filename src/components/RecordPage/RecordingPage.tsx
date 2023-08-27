@@ -256,12 +256,12 @@ const RecordingPage = () => {
           {selectedBlock === "service" && (
             <div>
               <h2 className="uppercase mb-10">Выбрать услуги</h2>
-              {members?.map((el) => (
+              {/* {members?.map((el) => (
                 <ServiceList
                   onClick={() => setSelectedBlock("selection")}
                   id={el}
                 />
-              ))}
+              ))} */}
             </div>
           )}
           {/* {selectedBlock === "userInfo" && <UserInfoForm />}
