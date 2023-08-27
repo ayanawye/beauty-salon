@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import s from "./RecordingPage.module.scss";
 import { useAppDispatch, useAppSelector } from "@/store/store";
 import { createRecordSlice } from "@/store/reducers/createRecordSlice";
