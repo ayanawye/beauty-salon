@@ -39,7 +39,9 @@ const RecordingPage = () => {
   }));
 
   useEffect(() => {
-    setSelectedBlock("selection");
+    if(address) {
+      setSelectedBlock("selection");
+    }
   }, [address]);
 
   const handleAddAddress = (id: number) => {
