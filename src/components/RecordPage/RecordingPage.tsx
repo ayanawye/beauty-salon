@@ -69,7 +69,7 @@ const RecordingPage = () => {
           </Link>
           <img src="/record-girl.jpg" alt="girl" />
         </div>
-        {/* <div className={s.right}>
+        <div className={s.right}>
           {selectedBlock === "address" && (
             <>
               <div className={s.main_title}>
@@ -256,8 +256,9 @@ const RecordingPage = () => {
           {selectedBlock === "service" && (
             <div>
               <h2 className="uppercase mb-10">Выбрать услуги</h2>
-              {members?.map((el) => (
+              {members?.length !== 0 && members?.map(el => (
                 <ServiceList
+                  key={el}
                   onClick={() => setSelectedBlock("selection")}
                   id={el}
                 />
@@ -275,7 +276,7 @@ const RecordingPage = () => {
               Далее
             </Button>
           )}
-        </div> */}
+        </div>
       </div>
     </section>
   );
