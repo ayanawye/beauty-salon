@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useGetAddressQuery } from "@/services/getAddressApi";
 
 const Hero = () => {
-  const {data: addresses} = useGetAddressQuery('')
-  
+  const { data: addresses } = useGetAddressQuery("");
+
   return (
     <section className={s.hero}>
       <div className={s.hero_content}>
@@ -19,26 +19,31 @@ const Hero = () => {
               косметология, перманентный макияж, массаж, коррекция фигуры
             </p>
             <div className={s.hero_btn}>
-            <Button padding="17px 0" variant={IVariant.outlined_white}>
-              <Link href="/record">записаться онлайн</Link>
-            </Button>
+              <Link href="/record">
+                <Button padding="17px 0" variant={IVariant.outlined_white}>
+                  записаться онлайн
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
         <div className={s.hero_right}>
           <div className={s.hero_right__content}>
-            {addresses?.length !== 0 && addresses?.map(address => (
-              <div key={address.id}>
-              <p className="uppercase text-base">
-                ул. {address?.street}
-              </p>
-              <p className="uppercase mb-2 text-base">
-                m. {address?.metro}
-              </p>
-              <a href={`tel:${address?.number}`} className="font-bold">{address?.number}</a>
-              <a href={`tel:${address?.number_2}`} className="font-bold">{address?.number_2}</a>
-            </div>
-            ))}
+            {addresses?.length !== 0 &&
+              addresses?.map((address) => (
+                <div key={address.id}>
+                  <p className="uppercase text-base">ул. {address?.street}</p>
+                  <p className="uppercase mb-2 text-base">
+                    m. {address?.metro}
+                  </p>
+                  <a href={`tel:${address?.number}`} className="font-bold">
+                    {address?.number}
+                  </a>
+                  <a href={`tel:${address?.number_2}`} className="font-bold">
+                    {address?.number_2}
+                  </a>
+                </div>
+              ))}
           </div>
         </div>
       </div>
