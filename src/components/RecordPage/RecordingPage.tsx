@@ -41,11 +41,8 @@ const RecordingPage = () => {
   }));
 
   useEffect(() => {
-    if (address) {
-      setSelectedBlock("selection");
-    }
-    localStorage.removeItem("foundDate");
-  }, []);
+    setSelectedBlock("selection");
+  }, [address]);
 
   const handleAddAddress = (id: number) => {
     dispatch(createRecordSlice.actions.addAddress(id));
