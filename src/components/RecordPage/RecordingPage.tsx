@@ -232,7 +232,7 @@ const RecordingPage = () => {
               id={address}
             />
           )}
-          {/* {selectedBlock === "date" && filterMember?.length !== 0 && (
+          {selectedBlock === "date" && filterMember?.length !== 0 && (
             <>
               <div className={s.main_title}>
                 <img
@@ -252,7 +252,7 @@ const RecordingPage = () => {
                 </>
               ))}
             </>
-          )} */}
+          )}
           {/* {selectedBlock === "service" && (
             <div>
               <h2 className="uppercase mb-10">Выбрать услуги</h2>
