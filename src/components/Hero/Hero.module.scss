@@ -29,7 +29,7 @@
     height: calc(100vh - 80px);
     background: rgba(221, 37, 136, 0.42);
     @include adaptive-value("max-width", 680, 320, 0);
-    &__content{
+    &__content {
       padding-right: 10px;
       @include adaptive-value("padding-left", 100, 10, 0);
       position: relative;
@@ -49,7 +49,7 @@
         margin-top: 20px;
         font-weight: 400;
         @include adaptive-value("font-size", 20, 16, 0);
-        @include adaptive-value('margin-bottom', 100, 20, 0)
+        @include adaptive-value("margin-bottom", 100, 20, 0);
       }
     }
   }
@@ -60,7 +60,7 @@
     color: $white-color;
     @include adaptive-value("padding-left", 80, 30, 0);
     background: rgba(221, 37, 136, 0.42);
-    &__content{
+    &__content {
       height: 100%;
       display: flex;
       justify-content: center;
@@ -68,29 +68,28 @@
       row-gap: 45px;
       position: relative;
       z-index: 777777;
-      & > div{
+      & > div {
         max-width: 365px;
         width: 100%;
-        border: 1px solid #FFF;
+        border: 1px solid #fff;
         padding: 25px 0 25px 25px;
-        a{
+        a {
           display: block;
         }
       }
     }
   }
-  &_btn{
+  &_btn {
     max-width: 360px;
     width: 100%;
   }
 }
 
-
 @media (max-width: 1100px) {
-  .hero{
-    &_right{
-      &__content{
-        & > div{
+  .hero {
+    &_right {
+      &__content {
+        & > div {
           width: 90%;
         }
       }
@@ -98,28 +97,28 @@
   }
 }
 @media (max-width: 700px) {
-  .hero{
-    &_left{
+  .hero {
+    &_left {
       width: 60%;
     }
-    &_right{
+    &_right {
       width: 20%;
-      &__content{
+      &__content {
         display: none;
       }
     }
   }
 }
 @media (max-width: 500px) {
-  .hero{
-    &_left{
+  .hero {
+    &_left {
       max-width: 100%;
       width: 100%;
-      &__content{
+      &__content {
         width: 90%;
       }
     }
-    &_right{
+    &_right {
       display: none;
     }
   }

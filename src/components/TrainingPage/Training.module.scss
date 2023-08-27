@@ -319,7 +319,7 @@
       }
     }
   }
-    .benefits {
+  .benefits {
     .card {
       h3 {
         font-weight: 500;
@@ -390,12 +390,12 @@
   }
 }
 @media (max-width: 650px) {
-  .benefits{
+  .benefits {
     padding: 40px 0;
-    .cards{
+    .cards {
       row-gap: 20px;
     }
-    .card{
+    .card {
       width: calc(50% - 30px);
     }
   }
@@ -437,12 +437,12 @@
     }
   }
   .benefits {
-    .cards{
+    .cards {
       row-gap: 30px;
     }
     .card {
       width: 80%;
-      h3{
+      h3 {
         margin-top: 10px;
       }
     }
