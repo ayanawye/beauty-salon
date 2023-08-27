@@ -11,22 +11,21 @@ interface TodaySloteProps {
 }
 
 const TodaySlote: FC<TodaySloteProps> = ({ member, onClick }) => {
-  const {changeDate} = useAppSelector(state => state.memberIdSlice)
+  const { changeDate } = useAppSelector((state) => state.memberIdSlice);
   const dispatch = useAppDispatch();
   const { data: todaySlote } = useGetTodaySloteQuery(member);
-  const formattedDate = dayjs(todaySlote?.date).format('YYYY-MM-DD');
-  
+  const formattedDate = dayjs(todaySlote?.date).format("YYYY-MM-DD");
 
   const handleAddSpecialistDate = (date: any) => {
     let foundDateArray: any = {};
     const newData = {
       date: [date],
       time: formattedDate,
-    }
-    const updatedData = {...foundDateArray, newData, id: date.id};
+    };
+    const updatedData = { ...foundDateArray, newData, id: date.id };
     dispatch(createRecordSlice.actions.addSpecialistId(member));
-    dispatch(createRecordSlice.actions.addDate(date.id))
-    dispatch(memberIdSlice.actions.addDate(updatedData))
+    dispatch(createRecordSlice.actions.addDate(date.id));
+    dispatch(memberIdSlice.actions.addDate(updatedData));
     onClick();
   };
 
@@ -38,7 +37,9 @@ const TodaySlote: FC<TodaySloteProps> = ({ member, onClick }) => {
             <li key={el.id} onClick={() => handleAddSpecialistDate(el)}>
               {el.time}
             </li>
-          ) : <h3 key={el.id}>Нет окошек на сегодня!</h3>
+          ) : (
+            <h3 key={el.id}>Нет окошек на сегодня!</h3>
+          )
         )
       ) : (
         <h3>Нет окошек на сегодня!</h3>

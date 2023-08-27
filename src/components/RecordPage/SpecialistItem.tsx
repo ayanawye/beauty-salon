@@ -12,10 +12,10 @@ interface SpecialistItemProps {
 }
 
 const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
-  const {members} = useAppSelector(state => state.createRecordSlice)
+  const { members } = useAppSelector((state) => state.createRecordSlice);
   const dispatch = useAppDispatch();
   const { data: specialists } = useGetSpecialistsByAddressQuery(id);
-  const filteredMembers = specialists?.filter(el => !members.includes(el.id))
+  const filteredMembers = specialists?.filter((el) => !members.includes(el.id));
 
   const handleAddSpecialist = (id: number) => {
     dispatch(createRecordSlice.actions.addSpecialistId(id));
@@ -27,13 +27,12 @@ const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
     <div>
       <h2 className="uppercase mb-10">Выбрать специалиста</h2>
       <div className={s.specialist}>
-        {filteredMembers?.length !== 0 ?
+        {filteredMembers?.length !== 0 ? (
           filteredMembers?.map((el) => (
             <div key={el.id}>
               <div className={s.top}>
                 <div>
-
-                <img src={el.avatar} alt="expert" />
+                  <img src={el.avatar} alt="expert" />
                 </div>
                 <div>
                   <h3 onClick={() => handleAddSpecialist(el.id)}>{el.fio}</h3>
@@ -42,10 +41,15 @@ const SpecialistItem: FC<SpecialistItemProps> = ({ id, onClick }) => {
               </div>
               <div className={s.bottom}>
                 <p>Ближайшее время для записи на сегодня:</p>
-                <TodaySlote onClick={onClick} member={el.id}/>
+                <TodaySlote onClick={onClick} member={el.id} />
               </div>
             </div>
-          )) : <h3 className="font-semibold text-center uppercase text-xl">специалисты недоступны</h3>}
+          ))
+        ) : (
+          <h3 className="font-semibold text-center uppercase text-xl">
+            специалисты недоступны
+          </h3>
+        )}
       </div>
     </div>
   );
