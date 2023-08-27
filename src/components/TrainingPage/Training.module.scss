@@ -33,6 +33,17 @@
       max-width: 385px;
       width: 100%;
       margin-bottom: 40px;
+      span {
+        position: relative;
+        &::before{
+          position: relative;
+          content: ' "';
+        }
+        &::after{
+          position: relative;
+          content: '"';
+        }
+      }
     }
     &_btn {
       display: flex;
