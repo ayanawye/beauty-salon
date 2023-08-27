@@ -25,7 +25,7 @@ const ServiceList: FC<ServiceListProps> = ({ id, onClick }) => {
   return (
     <>
       <h3 className="uppercase ">{mySpecialist?.fio}</h3>
-      {servises &&
+      {/* {servises &&
         servises?.map((el: any) => (
           <div
             key={el.id}
@@ -35,7 +35,7 @@ const ServiceList: FC<ServiceListProps> = ({ id, onClick }) => {
             <h3 className="uppercase">{el?.title}</h3>
             <p className="uppercase">{el?.price}P</p>
           </div>
-        ))}
+        ))} */}
     </>
   );
 };
