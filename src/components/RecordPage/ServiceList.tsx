@@ -11,12 +11,12 @@ interface ServiceListProps {
 }
 
 const ServiceList: FC<ServiceListProps> = ({ id, onClick }) => {
-  const {address} = useAppSelector(state => state.createRecordSlice)
-  const {data: members} = useGetSpecialistsByAddressQuery(address)
+  const { address } = useAppSelector((state) => state.createRecordSlice);
+  const { data: members } = useGetSpecialistsByAddressQuery(address);
   const { data: servises } = useGetMemberServiceQuery(id);
   const dispatch = useAppDispatch();
-  const mySpecialist = members?.find(el => el.id === id)
-  
+  const mySpecialist = members?.find((el) => el.id === id);
+
   const handleAddService = (id: number) => {
     dispatch(createRecordSlice.actions.addService(id));
     onClick();
